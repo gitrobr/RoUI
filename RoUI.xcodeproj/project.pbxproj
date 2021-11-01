@@ -7,9 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DA2F3112628BED7006629FF /* NSControl+extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2F3102628BED7006629FF /* NSControl+extenstion.swift */; };
 		9DF6B743260F777700C4287C /* RoUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF6B739260F777600C4287C /* RoUI.framework */; };
 		9DF6B748260F777700C4287C /* RoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B747260F777700C4287C /* RoUITests.swift */; };
 		9DF6B74A260F777700C4287C /* RoUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF6B73C260F777600C4287C /* RoUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DF6B764260F784800C4287C /* ROWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B763260F784800C4287C /* ROWindow.swift */; };
+		9DF6B78C260F92E900C4287C /* ROLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B78B260F92E900C4287C /* ROLocalizable.swift */; };
+		9DF6B790260F934E00C4287C /* ROLocalizableStandardMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B78F260F934E00C4287C /* ROLocalizableStandardMenu.swift */; };
+		9DF6B797260F93B000C4287C /* LocalizableStandardMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6B799260F93B000C4287C /* LocalizableStandardMenu.strings */; };
+		9DF6B7A0260F94CE00C4287C /* NSMenuItem+ApplicationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B79F260F94CE00C4287C /* NSMenuItem+ApplicationMenu.swift */; };
+		9DF6B82F2610D25C00C4287C /* ROGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B82E2610D25C00C4287C /* ROGlobals.swift */; };
+		9DF6B8922614477700C4287C /* ROKeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B8912614477700C4287C /* ROKeyCode.swift */; };
+		9DF6B899261447D600C4287C /* ROOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B898261447D600C4287C /* ROOutlineView.swift */; };
+		9DF6B8A32614836200C4287C /* ROTableColumnDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B8A22614836200C4287C /* ROTableColumnDefinition.swift */; };
+		9DF6B8B62614D0F100C4287C /* NSTextField+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B8B52614D0F100C4287C /* NSTextField+extensions.swift */; };
+		9DF6B8BE2614D1B900C4287C /* NSView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B8BD2614D1B900C4287C /* NSView+extensions.swift */; };
+		9DF6B8CF2616095D00C4287C /* ROMenuTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B8CE2616095D00C4287C /* ROMenuTable.swift */; };
+		9DF6B8D52616173F00C4287C /* ROPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B8D42616173F00C4287C /* ROPopoverController.swift */; };
+		9DF6B8DE26162C7B00C4287C /* NumberFormatter+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B8DD26162C7B00C4287C /* NumberFormatter+extensions.swift */; };
+		9DF6B8E72616F6F800C4287C /* NSButton+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B8E62616F6F800C4287C /* NSButton+extensions.swift */; };
+		9DF6B92C2619AF3E00C4287C /* ROTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B92B2619AF3D00C4287C /* ROTableView.swift */; };
+		9DF6B950261AFE8A00C4287C /* ROTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B94F261AFE8A00C4287C /* ROTabViewController.swift */; };
+		9DF6B956261AFF9500C4287C /* ROTabViewController+TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B955261AFF9500C4287C /* ROTabViewController+TabController.swift */; };
+		9DF6B95A261B046D00C4287C /* NSImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B959261B046D00C4287C /* NSImage+extensions.swift */; };
+		9DF6B95E261B2AB500C4287C /* ROTabViewController+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B95D261B2AB500C4287C /* ROTabViewController+SetupUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +44,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9DA2F3102628BED7006629FF /* NSControl+extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSControl+extenstion.swift"; sourceTree = "<group>"; };
 		9DF6B739260F777600C4287C /* RoUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RoUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF6B73C260F777600C4287C /* RoUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoUI.h; sourceTree = "<group>"; };
 		9DF6B73D260F777600C4287C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DF6B742260F777700C4287C /* RoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF6B747260F777700C4287C /* RoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoUITests.swift; sourceTree = "<group>"; };
 		9DF6B749260F777700C4287C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF6B763260F784800C4287C /* ROWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROWindow.swift; sourceTree = "<group>"; };
+		9DF6B78B260F92E900C4287C /* ROLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROLocalizable.swift; sourceTree = "<group>"; };
+		9DF6B78F260F934E00C4287C /* ROLocalizableStandardMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROLocalizableStandardMenu.swift; sourceTree = "<group>"; };
+		9DF6B798260F93B000C4287C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableStandardMenu.strings; sourceTree = "<group>"; };
+		9DF6B79C260F940300C4287C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LocalizableStandardMenu.strings; sourceTree = "<group>"; };
+		9DF6B79F260F94CE00C4287C /* NSMenuItem+ApplicationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+ApplicationMenu.swift"; sourceTree = "<group>"; };
+		9DF6B82E2610D25C00C4287C /* ROGlobals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROGlobals.swift; sourceTree = "<group>"; };
+		9DF6B8912614477700C4287C /* ROKeyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROKeyCode.swift; sourceTree = "<group>"; };
+		9DF6B898261447D600C4287C /* ROOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROOutlineView.swift; sourceTree = "<group>"; };
+		9DF6B8A22614836200C4287C /* ROTableColumnDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTableColumnDefinition.swift; sourceTree = "<group>"; };
+		9DF6B8B52614D0F100C4287C /* NSTextField+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+extensions.swift"; sourceTree = "<group>"; };
+		9DF6B8BD2614D1B900C4287C /* NSView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+extensions.swift"; sourceTree = "<group>"; };
+		9DF6B8CE2616095D00C4287C /* ROMenuTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROMenuTable.swift; sourceTree = "<group>"; };
+		9DF6B8D42616173F00C4287C /* ROPopoverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROPopoverController.swift; sourceTree = "<group>"; };
+		9DF6B8DD26162C7B00C4287C /* NumberFormatter+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+extensions.swift"; sourceTree = "<group>"; };
+		9DF6B8E62616F6F800C4287C /* NSButton+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+extensions.swift"; sourceTree = "<group>"; };
+		9DF6B92B2619AF3D00C4287C /* ROTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTableView.swift; sourceTree = "<group>"; };
+		9DF6B94F261AFE8A00C4287C /* ROTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTabViewController.swift; sourceTree = "<group>"; };
+		9DF6B955261AFF9500C4287C /* ROTabViewController+TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ROTabViewController+TabController.swift"; sourceTree = "<group>"; };
+		9DF6B959261B046D00C4287C /* NSImage+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+extensions.swift"; sourceTree = "<group>"; };
+		9DF6B95D261B2AB500C4287C /* ROTabViewController+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ROTabViewController+SetupUI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +114,7 @@
 		9DF6B73B260F777600C4287C /* RoUI */ = {
 			isa = PBXGroup;
 			children = (
+				9DF6B761260F77C500C4287C /* Classes */,
 				9DF6B73C260F777600C4287C /* RoUI.h */,
 				9DF6B73D260F777600C4287C /* Info.plist */,
 			);
@@ -84,6 +128,90 @@
 				9DF6B749260F777700C4287C /* Info.plist */,
 			);
 			path = RoUITests;
+			sourceTree = "<group>";
+		};
+		9DF6B761260F77C500C4287C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6B8B42614D0D200C4287C /* Extensions */,
+				9DF6B897261447C200C4287C /* Elements */,
+				9DF6B82D2610D23E00C4287C /* Definitions */,
+				9DF6B78A260F92C900C4287C /* Localizable */,
+				9DF6B789260F926900C4287C /* Menu */,
+				9DF6B762260F77D600C4287C /* Window */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9DF6B762260F77D600C4287C /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6B763260F784800C4287C /* ROWindow.swift */,
+				9DF6B8D42616173F00C4287C /* ROPopoverController.swift */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		9DF6B789260F926900C4287C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6B78F260F934E00C4287C /* ROLocalizableStandardMenu.swift */,
+				9DF6B799260F93B000C4287C /* LocalizableStandardMenu.strings */,
+				9DF6B79F260F94CE00C4287C /* NSMenuItem+ApplicationMenu.swift */,
+				9DF6B8CE2616095D00C4287C /* ROMenuTable.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		9DF6B78A260F92C900C4287C /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6B78B260F92E900C4287C /* ROLocalizable.swift */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		9DF6B82D2610D23E00C4287C /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6B8912614477700C4287C /* ROKeyCode.swift */,
+				9DF6B82E2610D25C00C4287C /* ROGlobals.swift */,
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
+		9DF6B897261447C200C4287C /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6B94E261AFE6400C4287C /* TabView */,
+				9DF6B898261447D600C4287C /* ROOutlineView.swift */,
+				9DF6B92B2619AF3D00C4287C /* ROTableView.swift */,
+				9DF6B8A22614836200C4287C /* ROTableColumnDefinition.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		9DF6B8B42614D0D200C4287C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DA2F3102628BED7006629FF /* NSControl+extenstion.swift */,
+				9DF6B8B52614D0F100C4287C /* NSTextField+extensions.swift */,
+				9DF6B8BD2614D1B900C4287C /* NSView+extensions.swift */,
+				9DF6B8DD26162C7B00C4287C /* NumberFormatter+extensions.swift */,
+				9DF6B8E62616F6F800C4287C /* NSButton+extensions.swift */,
+				9DF6B959261B046D00C4287C /* NSImage+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9DF6B94E261AFE6400C4287C /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6B94F261AFE8A00C4287C /* ROTabViewController.swift */,
+				9DF6B95D261B2AB500C4287C /* ROTabViewController+SetupUI.swift */,
+				9DF6B955261AFF9500C4287C /* ROTabViewController+TabController.swift */,
+			);
+			path = TabView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +275,7 @@
 				TargetAttributes = {
 					9DF6B738260F777600C4287C = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					9DF6B741260F777700C4287C = {
 						CreatedOnToolsVersion = 12.4;
@@ -160,6 +289,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 9DF6B72F260F777600C4287C;
 			productRefGroup = 9DF6B73A260F777600C4287C /* Products */;
@@ -177,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF6B797260F93B000C4287C /* LocalizableStandardMenu.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +325,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF6B8B62614D0F100C4287C /* NSTextField+extensions.swift in Sources */,
+				9DF6B8A32614836200C4287C /* ROTableColumnDefinition.swift in Sources */,
+				9DF6B78C260F92E900C4287C /* ROLocalizable.swift in Sources */,
+				9DF6B92C2619AF3E00C4287C /* ROTableView.swift in Sources */,
+				9DF6B8D52616173F00C4287C /* ROPopoverController.swift in Sources */,
+				9DF6B8E72616F6F800C4287C /* NSButton+extensions.swift in Sources */,
+				9DF6B899261447D600C4287C /* ROOutlineView.swift in Sources */,
+				9DF6B8DE26162C7B00C4287C /* NumberFormatter+extensions.swift in Sources */,
+				9DF6B82F2610D25C00C4287C /* ROGlobals.swift in Sources */,
+				9DA2F3112628BED7006629FF /* NSControl+extenstion.swift in Sources */,
+				9DF6B8BE2614D1B900C4287C /* NSView+extensions.swift in Sources */,
+				9DF6B95A261B046D00C4287C /* NSImage+extensions.swift in Sources */,
+				9DF6B764260F784800C4287C /* ROWindow.swift in Sources */,
+				9DF6B8922614477700C4287C /* ROKeyCode.swift in Sources */,
+				9DF6B7A0260F94CE00C4287C /* NSMenuItem+ApplicationMenu.swift in Sources */,
+				9DF6B8CF2616095D00C4287C /* ROMenuTable.swift in Sources */,
+				9DF6B956261AFF9500C4287C /* ROTabViewController+TabController.swift in Sources */,
+				9DF6B790260F934E00C4287C /* ROLocalizableStandardMenu.swift in Sources */,
+				9DF6B950261AFE8A00C4287C /* ROTabViewController.swift in Sources */,
+				9DF6B95E261B2AB500C4287C /* ROTabViewController+SetupUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,11 +366,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		9DF6B799260F93B000C4287C /* LocalizableStandardMenu.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DF6B798260F93B000C4287C /* en */,
+				9DF6B79C260F940300C4287C /* de */,
+			);
+			name = LocalizableStandardMenu.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		9DF6B74B260F777700C4287C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -284,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -340,6 +505,8 @@
 		9DF6B74E260F777700C4287C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -357,6 +524,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ch.broncaglioni.RoUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -364,6 +532,8 @@
 		9DF6B74F260F777700C4287C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -388,6 +558,7 @@
 		9DF6B751260F777700C4287C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = M6X558V986;
@@ -406,6 +577,7 @@
 		9DF6B752260F777700C4287C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = M6X558V986;

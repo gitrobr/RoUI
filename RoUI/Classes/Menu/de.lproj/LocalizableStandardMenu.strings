@@ -1,0 +1,29 @@
+/* 
+  LocalizableStandardMenu.strings
+  BRRO3
+
+  Created by seco on 28.02.21.
+  Copyright © 2021 Bruno Roncaglioni. All rights reserved.
+*/
+
+"about" = "Über {app}";
+"file" = "Ablage";
+"open" = "Öffnen";
+"save" = "Sichern";
+"save as" = "Sichern unter";
+"edit" = "Bearbeiten";
+"copy" = "Kopieren";
+"paste" = "Einsetzen";
+"delete" = "löschen";
+"services" = "Dienste";
+"new" = "Neu";
+"hide" = "{app} ausblende";
+"hide others" = "Andere ausblenden";
+"quit" = "{app} beenden";
+"close" = "Schliessen";
+"cut" = "ausschneiden";
+"select all" = "Alles auswählen";
+"preferences" = "Einstellungen";
+"showAll" = "Alle einblenden";
+"openRecent" = "Benutzte Dokumente";
+"openRecentClearMenu" = "Einträge löschen";
