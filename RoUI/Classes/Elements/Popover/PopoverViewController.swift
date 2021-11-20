@@ -23,10 +23,10 @@ import Cocoa
 /// func didCloseCancel() {}
 /// ~~~
 /// kann in der abgeliteten Klasse die Aktion der Buttens gesteuert werden
-class ROPopoverViewController: NSViewController {
+open class ROPopoverViewController: NSViewController {
     /// Initialisert das Popover
     /// - Parameter behavior: Das Verhalten (Default = .transient)
-    init(behavior: NSPopover.Behavior = .transient) {
+    public init(behavior: NSPopover.Behavior = .transient) {
         pPopover = NSPopover()
         pPopover.behavior = behavior
         pPopover.animates = true
@@ -38,7 +38,7 @@ class ROPopoverViewController: NSViewController {
         buttonOk.action = #selector(self.actionButtons(_:))
         buttonCancel.action = #selector(self.actionButtons(_:))
     }
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required public init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     /// Der OK Button
     let buttonOk = NSButton.pushButtonOk
@@ -48,7 +48,7 @@ class ROPopoverViewController: NSViewController {
     /// - Parameters:
     ///   - view: Zu dieser View anzeigen
     ///   - preferredEdge: Die gewünschte Seite
-    func show(relativeToView view: NSView, preferredEdge: NSRectEdge) {
+    public func show(relativeToView view: NSView, preferredEdge: NSRectEdge) {
         pPopover.show(relativeTo: view.bounds, of: view, preferredEdge: preferredEdge)
     }
     @objc func actionButtons(_ sender: NSButton) {
@@ -76,20 +76,20 @@ class ROPopoverViewController: NSViewController {
     }
     /// Wird aufgerufen wenn OK geklickt wurde bevor das Popover geschlossen wird
     /// - Returns: false das Popover wird nicht geschlossen
-    func willCloseOk() -> Bool { true }
+    open func willCloseOk() -> Bool { true }
     /// Wird aufgerufen wenn OK und das Popover schon geschlossen ist
-    func didCloseOk() {}
+    open func didCloseOk() {}
     /// Wird aufgerufen wenn CANCEL geklickt wurde bevor das Popover geschlossen wird
     /// - Returns: false das Popover wird nicht geschlossen
-    func willCloseCancel() -> Bool { true }
+    open func willCloseCancel() -> Bool { true }
     /// Wird aufgerufen wenn CANCEL und das Popover schon geschlossen ist
-    func didCloseCancel() {}
+    open func didCloseCancel() {}
     /// Fügt OK und CANCEL ans untere Ende der View.
     ///
     /// Die upperView muss schon als Subview vorhanden sein
     /// - Parameter upperView: Unterhalb dieser View werden die Buttons platziert
     /// - Parameter layout: LayoutConstantGroup die zum Plazieren verwendet wird
-    func addButtonsAtBottomOfView(upperView: NSView, layout: ROLayoutConstantGroup) {
+    public func addButtonsAtBottomOfView(upperView: NSView, layout: ROLayoutConstantGroup) {
         view.addSubviewsForAutoLayout([
             buttonOk, buttonCancel
         ])
@@ -102,13 +102,13 @@ class ROPopoverViewController: NSViewController {
         ])
     }
     /// Schliesst das Popover-Window
-    func closePopover() {
+    public func closePopover() {
         pPopover.close()
     }
     // MARK: - private
     private var pPopover: NSPopover
 
-    override func loadView() {
+    open override func loadView() {
         view = NSView()
     }
 }
