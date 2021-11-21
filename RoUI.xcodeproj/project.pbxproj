@@ -11,6 +11,7 @@
 		15F58F162747E31400C2A186 /* ROLocalizableUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F58F152747E31400C2A186 /* ROLocalizableUIElement.swift */; };
 		15F58F192747E3DB00C2A186 /* ROLocalizableUIElement.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F58F1B2747E3DB00C2A186 /* ROLocalizableUIElement.strings */; };
 		15F58F1E2747E54C00C2A186 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F58F1D2747E54C00C2A186 /* PopoverViewController.swift */; };
+		15F58F262749408B00C2A186 /* ROTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F58F252749408B00C2A186 /* ROTableCellView.swift */; };
 		9DA2F3112628BED7006629FF /* NSControl+extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA2F3102628BED7006629FF /* NSControl+extenstion.swift */; };
 		9DF6B743260F777700C4287C /* RoUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF6B739260F777600C4287C /* RoUI.framework */; };
 		9DF6B748260F777700C4287C /* RoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6B747260F777700C4287C /* RoUITests.swift */; };
@@ -53,6 +54,7 @@
 		15F58F1A2747E3DB00C2A186 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ROLocalizableUIElement.strings; sourceTree = "<group>"; };
 		15F58F1C2747E3DE00C2A186 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ROLocalizableUIElement.strings; sourceTree = "<group>"; };
 		15F58F1D2747E54C00C2A186 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		15F58F252749408B00C2A186 /* ROTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTableCellView.swift; sourceTree = "<group>"; };
 		9DA2F3102628BED7006629FF /* NSControl+extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSControl+extenstion.swift"; sourceTree = "<group>"; };
 		9DF6B739260F777600C4287C /* RoUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RoUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF6B73C260F777600C4287C /* RoUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoUI.h; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				9DF6B898261447D600C4287C /* ROOutlineView.swift */,
 				9DF6B92B2619AF3D00C4287C /* ROTableView.swift */,
 				9DF6B8A22614836200C4287C /* ROTableColumnDefinition.swift */,
+				15F58F252749408B00C2A186 /* ROTableCellView.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				9DF6B8CF2616095D00C4287C /* ROMenuTable.swift in Sources */,
 				9DF6B956261AFF9500C4287C /* ROTabViewController+TabController.swift in Sources */,
 				15F58F162747E31400C2A186 /* ROLocalizableUIElement.swift in Sources */,
+				15F58F262749408B00C2A186 /* ROTableCellView.swift in Sources */,
 				9DF6B790260F934E00C4287C /* ROLocalizableStandardMenu.swift in Sources */,
 				9DF6B950261AFE8A00C4287C /* ROTabViewController.swift in Sources */,
 				9DF6B95E261B2AB500C4287C /* ROTabViewController+SetupUI.swift in Sources */,

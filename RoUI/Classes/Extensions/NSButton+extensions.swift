@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import SwiftUI
 
 extension NSButton {
     /**
@@ -29,7 +30,13 @@ extension NSButton {
     static public var pushButtonCancel: NSButton {
         let button = NSButton.pushButton
         button.title = ROLocalizableUIElement.roButtonCancel.localized
-        button.keyEquivalent = "\u{1b}"
+        let keyEquivalent: String
+        if #available(macOS 11.0, *) {
+            keyEquivalent = String(KeyEquivalent.escape.character)
+        } else {
+            keyEquivalent = "\u{1b}"
+        }
+        button.keyEquivalent = keyEquivalent
         return button
     }
 

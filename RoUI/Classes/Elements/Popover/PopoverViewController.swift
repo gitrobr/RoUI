@@ -10,18 +10,18 @@ import Cocoa
 /// Basisklasse eines Popovers
 ///
 /// Mit der Funktion
-/// ~~~
+/// ```
 /// func addButtonsAtBottomOfView(upperView: NSView, layout: ROLayoutConstantGroup)
-/// ~~~
+/// ```
 /// werden die ok / canel Buttons unterhalb des angegebenen View und am Boden erstellt
 ///
 /// Mit dern Funktionen:
-/// ~~~
+/// ```
 /// func willCloseOk() -> Bool { true }
 /// func didCloseOk() {}
 /// func willCloseCancel() -> Bool { true }
 /// func didCloseCancel() {}
-/// ~~~
+/// ```
 /// kann in der abgeliteten Klasse die Aktion der Buttens gesteuert werden
 open class ROPopoverViewController: NSViewController {
     /// Initialisert das Popover
@@ -35,7 +35,9 @@ open class ROPopoverViewController: NSViewController {
 
         pPopover.contentViewController = self
 
+        buttonOk.target = self
         buttonOk.action = #selector(self.actionButtons(_:))
+        buttonCancel.target = self
         buttonCancel.action = #selector(self.actionButtons(_:))
     }
     required public init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -110,5 +112,14 @@ open class ROPopoverViewController: NSViewController {
 
     open override func loadView() {
         view = NSView()
+    }
+}
+extension ROPopoverViewController: NSTextFieldDelegate {
+    public func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if commandSelector == #selector(NSResponder.cancelOperation(_:)) {
+            actionButtons(buttonCancel)
+            return true
+        }
+        return false
     }
 }
