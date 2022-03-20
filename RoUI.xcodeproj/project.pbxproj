@@ -13,6 +13,7 @@
 		151FA69D27B5E254004FB66B /* NSEvent+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151FA69C27B5E254004FB66B /* NSEvent+extension.swift */; };
 		151FA6AB27B7BB81004FB66B /* NSMenuItem+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151FA6AA27B7BB81004FB66B /* NSMenuItem+extensions.swift */; };
 		1544BEE4273928AC008C657F /* LayoutConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544BEE3273928AC008C657F /* LayoutConstant.swift */; };
+		15F25C1C27E2944300862432 /* ROTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F25C1B27E2944300862432 /* ROTextField.swift */; };
 		15F58F162747E31400C2A186 /* ROLocalizableUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F58F152747E31400C2A186 /* ROLocalizableUIElement.swift */; };
 		15F58F192747E3DB00C2A186 /* ROLocalizableUIElement.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F58F1B2747E3DB00C2A186 /* ROLocalizableUIElement.strings */; };
 		15F58F1E2747E54C00C2A186 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F58F1D2747E54C00C2A186 /* PopoverViewController.swift */; };
@@ -60,6 +61,7 @@
 		151FA69C27B5E254004FB66B /* NSEvent+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+extension.swift"; sourceTree = "<group>"; };
 		151FA6AA27B7BB81004FB66B /* NSMenuItem+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+extensions.swift"; sourceTree = "<group>"; };
 		1544BEE3273928AC008C657F /* LayoutConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstant.swift; sourceTree = "<group>"; };
+		15F25C1B27E2944300862432 /* ROTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTextField.swift; sourceTree = "<group>"; };
 		15F58F152747E31400C2A186 /* ROLocalizableUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROLocalizableUIElement.swift; sourceTree = "<group>"; };
 		15F58F1A2747E3DB00C2A186 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ROLocalizableUIElement.strings; sourceTree = "<group>"; };
 		15F58F1C2747E3DE00C2A186 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ROLocalizableUIElement.strings; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				9DF6B8A22614836200C4287C /* ROTableColumnDefinition.swift */,
 				15F58F252749408B00C2A186 /* ROTableCellView.swift */,
 				150EA08E27D4BE1700FF3331 /* ROTableCellViewText.swift */,
+				15F25C1B27E2944300862432 /* ROTextField.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				9DF6B764260F784800C4287C /* ROWindow.swift in Sources */,
 				9DF6B8922614477700C4287C /* ROKeyCode.swift in Sources */,
 				151FA6AB27B7BB81004FB66B /* NSMenuItem+extensions.swift in Sources */,
+				15F25C1C27E2944300862432 /* ROTextField.swift in Sources */,
 				9DF6B7A0260F94CE00C4287C /* NSMenuItem+ApplicationMenu.swift in Sources */,
 				9DF6B8CF2616095D00C4287C /* ROMenuTable.swift in Sources */,
 				9DF6B956261AFF9500C4287C /* ROTabViewController+TabController.swift in Sources */,
