@@ -8,18 +8,18 @@
 import Cocoa
 
 protocol TabItemViewDelegate: AnyObject {
-    func tabItemViewDidSelect(_ tabItemView: ROTabViewController.TabItemView)
-    func tabItemViewWillClose(_ tabItemView: ROTabViewController.TabItemView)
+    func tabItemViewDidSelect(_ tabItemView: ROTabViewControllerOld.TabItemView)
+    func tabItemViewWillClose(_ tabItemView: ROTabViewControllerOld.TabItemView)
 }
 
 protocol TabControllerDelegate: AnyObject {
-    func tabController(_ tabController: ROTabViewController.TabController,
+    func tabController(_ tabController: ROTabViewControllerOld.TabController,
                        didCangeSelecttionFromIndex from: Int,
                        toIndex: Int)
-    func tabController(_ tabController: ROTabViewController.TabController,
+    func tabController(_ tabController: ROTabViewControllerOld.TabController,
                        didCloseTabForViewController: NSViewController)
 }
-extension ROTabViewController {
+extension ROTabViewControllerOld {
     /**
      Der Controller für den Tab-Bereich
      */
@@ -52,10 +52,10 @@ extension ROTabViewController {
 
             return pViewControllers[index].controller
         }
-        func tabItemViewDidSelect(_ tabItemView: ROTabViewController.TabItemView) {
+        func tabItemViewDidSelect(_ tabItemView: ROTabViewControllerOld.TabItemView) {
             self.pSetCurrentIndex(self.pViewControllers.selectItemView(tabItemView))
         }
-        func tabItemViewWillClose(_ tabItemView: ROTabViewController.TabItemView) {
+        func tabItemViewWillClose(_ tabItemView: ROTabViewControllerOld.TabItemView) {
             if let indexToDelete = firstIndexOfTabView(tabItemView) {
                 pCloseTab(at: indexToDelete)
             }
@@ -64,7 +64,7 @@ extension ROTabViewController {
             if pCurrentItemIndex < 0 { return nil }
             return pViewControllers[pCurrentItemIndex].controller
         }
-        func firstIndexOfTabView(_ tabItemView: ROTabViewController.TabItemView) -> Int? {
+        func firstIndexOfTabView(_ tabItemView: ROTabViewControllerOld.TabItemView) -> Int? {
             for (index,item) in pViewControllers.enumerated() {
                 if item.view === tabItemView { return index }
             }
@@ -282,8 +282,8 @@ extension ROTabViewController {
     }
 }
 
-extension Array where Element == ROTabViewController.TabItemToViewController {
-    mutating func selectItemView(_ view: ROTabViewController.TabItemView) -> Int {
+extension Array where Element == ROTabViewControllerOld.TabItemToViewController {
+    mutating func selectItemView(_ view: ROTabViewControllerOld.TabItemView) -> Int {
         var newIndex = -1
         for (index, object) in self.enumerated() {
             if object.view === view {
