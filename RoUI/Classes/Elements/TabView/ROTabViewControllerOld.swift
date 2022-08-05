@@ -10,15 +10,15 @@ import Cocoa
  Erweitert NSViewController um Element von TabView.
  */
 public protocol ROViewControllerTabView: AnyObject {
-    func setTabItem(_ tabitem: ROTabViewController.TabItemView)
+    func setTabItem(_ tabitem: ROTabViewControllerOld.TabItemView)
 }
 
-@objc public protocol ROTabViewControllerDelegate: AnyObject {
-    @objc func tabViewControllerSelectionDidChange(_ tabViewController: ROTabViewController)
-    @objc func tabViewController(_ tabViewController: ROTabViewController, willClose cntlrView: NSViewController)
+@objc public protocol ROTabViewControllerDelegateOld: AnyObject {
+    @objc func tabViewControllerSelectionDidChange(_ tabViewController: ROTabViewControllerOld)
+    @objc func tabViewController(_ tabViewController: ROTabViewControllerOld, willClose cntlrView: NSViewController)
 }
 
-public class ROTabViewController: NSViewController {
+public class ROTabViewControllerOld: NSViewController {
 
     public init() {
         super.init(nibName: nil, bundle: nil)
@@ -30,7 +30,7 @@ public class ROTabViewController: NSViewController {
     let cntlrTab = TabController()
     let viewContrainer = NSView()
     // MARK: public
-    public weak var delegate: ROTabViewControllerDelegate?
+    public weak var delegate: ROTabViewControllerDelegateOld?
     public func addViewController(_ viewController: NSViewController) {
         cntlrTab.addViewController(viewController)
     }
@@ -57,7 +57,7 @@ public class ROTabViewController: NSViewController {
     }
 }
 
-extension ROTabViewController: TabControllerDelegate {
+extension ROTabViewControllerOld: TabControllerDelegate {
     func tabController(_ tabController: TabController, didCloseTabForViewController: NSViewController) {
         delegate?.tabViewController(self, willClose: didCloseTabForViewController)
     }

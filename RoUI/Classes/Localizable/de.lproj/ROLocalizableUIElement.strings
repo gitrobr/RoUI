@@ -1,0 +1,10 @@
+/* 
+  ROLocalizableUIElement.strings
+  RoUI
+
+  Created by Bruno Roncaglioni on 19.11.21.
+  
+*/
+
+"roButtonOk" = "ok";
+"roButtonCancel" = "abbrechen";

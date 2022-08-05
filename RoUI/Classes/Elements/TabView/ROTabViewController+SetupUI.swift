@@ -7,7 +7,7 @@
 
 import Cocoa
 
-extension ROTabViewController {
+extension ROTabViewControllerOld {
 
     func setupUI() {
         self.pSetupUIElements()

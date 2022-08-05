@@ -40,20 +40,33 @@ public protocol ROLocalizable {
 // 1
 extension ROLocalizable where Self: RawRepresentable, Self.RawValue == String {
     public var localized: String {
-        return rawValue.localized(bundle: Self.bundle, tableName: Self.tableName)
+        return rawValue.localized(bundle: lacalizeBundle(Self.bundle), tableName: Self.tableName)
     }
     public var localizedLabel: String {
-        return rawValue.localized(bundle: Self.bundle, tableName: Self.tableName) + ":"
+        return rawValue.localized(bundle: lacalizeBundle(Self.bundle), tableName: Self.tableName) + ":"
     }
     public var rawString: String {
         return rawValue
     }
 
     public func localized( dict: [String: String] ) -> String {
-        var res = rawValue.localized(bundle: Self.bundle, tableName: Self.tableName)
+        var res = rawValue.localized(bundle: lacalizeBundle(Self.bundle), tableName: Self.tableName)
         for rec in dict {
             res = res.replacingOccurrences(of: "{\(rec.key)}", with: rec.value )
         }
         return res
+    }
+    private func lacalizeBundle(_ bundle: Bundle) -> Bundle {
+        if let lang = Locale.preferredLanguages.first {
+            if lang.contains("-") {
+                let key = String(lang.split(separator: "-").first ?? "x")
+                if let path = bundle.path(forResource: key, ofType: "lproj") {
+                    if let bund = Bundle(path: path) {
+                        return bund
+                    }
+                }
+            }
+        }
+        return bundle
     }
 }

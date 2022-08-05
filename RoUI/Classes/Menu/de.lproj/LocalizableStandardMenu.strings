@@ -14,14 +14,14 @@
 "edit" = "Bearbeiten";
 "copy" = "Kopieren";
 "paste" = "Einsetzen";
-"delete" = "löschen";
+"delete" = "Löschen";
 "services" = "Dienste";
 "new" = "Neu";
 "hide" = "{app} ausblende";
 "hide others" = "Andere ausblenden";
 "quit" = "{app} beenden";
 "close" = "Schliessen";
-"cut" = "ausschneiden";
+"cut" = "Ausschneiden";
 "select all" = "Alles auswählen";
 "preferences" = "Einstellungen";
 "showAll" = "Alle einblenden";
