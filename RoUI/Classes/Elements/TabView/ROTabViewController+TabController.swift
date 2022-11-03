@@ -30,9 +30,7 @@ extension ROTabViewControllerOld {
             let firstIndexOfViewController = pViewControllers.firstIndex { (cntlr) -> Bool in
                 return (cntlr.controller === viewController )
             }
-            if let firstIndex = firstIndexOfViewController {
-                let index = Int(firstIndex)
-                // TODO: aktiveren des entsprechenden View-Controller
+            if firstIndexOfViewController != nil {
                 return
             }
             let itemView = TabItemView()
