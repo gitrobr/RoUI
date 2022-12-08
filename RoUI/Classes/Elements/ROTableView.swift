@@ -13,6 +13,9 @@ import Cocoa
 
 }
 
+/// Erweiterte NSTableView
+///
+/// Die ROTableView ist in eine ScrollView eingebeted. Für Autolayout wird die scrollView verwendet
 open class ROTableView: NSTableView {
     public convenience init() {
         self.init( frame: CGRect())

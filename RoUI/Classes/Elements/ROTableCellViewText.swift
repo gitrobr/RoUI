@@ -22,7 +22,7 @@ open class ROTableCellViewText: ROTableCellView, NSTextFieldDelegate {
     }
 
     required public init(column: ROTableColumnDefinition) {
-        super.init(column: column, layout: ROLayoutConstant.zero)
+        super.init(column: column, layout: ROLayoutConstant.defaultTableCellView)
         pSetupTextField(formatter: nil)
     }
 
