@@ -35,6 +35,8 @@ open class ROTableView: NSTableView {
         pClipView.documentView = self
 
         pScrollView.borderType = .bezelBorder
+        pScrollView.focusRingType = .exterior
+
     }
 
     required public init?(coder: NSCoder) {
