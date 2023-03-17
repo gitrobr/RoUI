@@ -44,6 +44,12 @@ open class ROTableView: NSTableView {
     }
     /// Die ScrollView
     public var scrollView: NSScrollView { self.pScrollView }
+    public var withFocusRing: Bool {
+        get { pScrollView.focusRingType == .exterior }
+        set {
+            pScrollView.focusRingType = newValue ? .exterior : .none
+        }
+    }
     /**
      Erstellt die Columns anhand der Definitionen. Die erste Column in den Definitionen ist
      auch die Outline-Column

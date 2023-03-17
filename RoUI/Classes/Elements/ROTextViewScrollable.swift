@@ -42,8 +42,16 @@ open class ROTextViewScrollable: NSTextView {
     required public init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     /// Die ScrollView
     public var scrollView: NSScrollView { self.pScrollView }
-    // MARK: private
     private var pScrollView: NSScrollView!
+
+    public var didReginFirstResponder: ((_ field: NSTextView) -> Void)?
+    open override func resignFirstResponder() -> Bool {
+        let resign = super.resignFirstResponder()
+        if resign, let didReginFirstResponder {
+            didReginFirstResponder(self)
+        }
+        return resign
+    }
 
     open override func insertTab(_ sender: Any?) {
         if useTabToJump {

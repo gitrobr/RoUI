@@ -20,7 +20,7 @@ open class ROTableCellView: NSView {
     /// - Parameter column: Column-Definition
     /// - Parameter layout: Mit diesem Layout wird die ContentView in die View gefügt
     required public init(column: ROTableColumnDefinition,
-                         layout: ROLayoutConstantGroup,
+                         layout: ROLayoutConstantGroup = ROLayoutConstant.defaultTableCellView,
                          withBottomLine: Bool = false) {
         pColumn = column
         pLayoutGroup = layout

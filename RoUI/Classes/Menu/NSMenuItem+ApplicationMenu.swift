@@ -54,6 +54,7 @@ extension NSMenuItem {
      */
     static public func standardAppMenuItemEdit() -> NSMenuItem {
         let item = NSMenuItem.menuItem(title: LocalizableStandardMenu.edit.localized)
+        item.identifier = LocalizableStandardMenu.edit.identifier
         item.submenu = NSMenu(title: LocalizableStandardMenu.edit.localized)
         return item
     }
@@ -108,12 +109,14 @@ extension NSMenuItem {
         let item = NSMenuItem.menuItem(title: LocalizableStandardMenu.open.localized,
                                        action: action,
                                        keyEquivalent: "o")
+        item.identifier = LocalizableStandardMenu.open.identifier
         return item
     }
     static public func menuSave( action: Selector) -> NSMenuItem {
         let item = NSMenuItem.menuItem(title: LocalizableStandardMenu.save.localized,
                                        action: action,
                                        keyEquivalent: "s")
+        item.identifier = LocalizableStandardMenu.save.identifier
         return item
     }
     static public func menuSaveAs( action: Selector) -> NSMenuItem {
