@@ -38,6 +38,8 @@ open class ROLayoutConstant {
                                                                             .trailing: -0, .horizontal: 8, .vertical: 8])
     public static let defaultScrollinsplit = ROLayoutConstantGroup(values: [.top: 2, .leading: 2, .trailing: -3,
                                                                             .bottom: -2, .horizontal: 8, .vertical: 8])
+    public static let defaultOutlineCellView = ROLayoutConstantGroup(values: [.top: 2, .leading: 2, .trailing: -3,
+                                                                            .bottom: -2, .horizontal: 8, .vertical: 8])
 
 }
 
