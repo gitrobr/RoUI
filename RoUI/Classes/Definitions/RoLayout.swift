@@ -9,6 +9,11 @@ import Foundation
 import AppKit
 
 open class RoLayout {
+    public enum x {
+        case eq
+        case ge
+        case le
+    }
     public init(view: NSView, group: ROLayoutConstantGroup) {
         mainView = view
         self.group = group
