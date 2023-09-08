@@ -43,7 +43,7 @@ open class RoLayout {
     }
     public func addVerticalToMain(views: [NSView], fitBottom: Bool = true) {
         views.forEach({pAddSubviewIfNoteExists($0)})
-        mainView.addConstraints(group.cVerticalToSuper(views: views, to: mainView, fitBottom: true))
+        mainView.addConstraints(group.cVerticalToSuper(views: views, to: mainView, fitBottom: fitBottom))
     }
     public func addLine(views: [NSView], layoutHorizontal: ROLayoutConstant.LayoutHorizontal = .centerY) {
         views.forEach({pAddSubviewIfNoteExists($0)})

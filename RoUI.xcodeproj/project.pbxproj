@@ -14,6 +14,8 @@
 		151FA6AB27B7BB81004FB66B /* NSMenuItem+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151FA6AA27B7BB81004FB66B /* NSMenuItem+extensions.swift */; };
 		1544BEE4273928AC008C657F /* LayoutConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544BEE3273928AC008C657F /* LayoutConstant.swift */; };
 		15554889297BE77E0015499F /* ROTextViewScrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15554888297BE77E0015499F /* ROTextViewScrollable.swift */; };
+		155575C82A7565CD00A045B5 /* ROStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155575C72A7565CD00A045B5 /* ROStepper.swift */; };
+		155575F42A967F7900A045B5 /* NSTableView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155575F32A967F7900A045B5 /* NSTableView+extensions.swift */; };
 		1570952F2A3DEC0100C214FA /* RoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1570952E2A3DEC0100C214FA /* RoLayout.swift */; };
 		1574581B27EB273F00EABE9B /* ROTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1574581A27EB273F00EABE9B /* ROTabViewController.swift */; };
 		15B72FF328427C990010F5B4 /* MessageLooper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B72FF228427C990010F5B4 /* MessageLooper.swift */; };
@@ -66,6 +68,8 @@
 		151FA6AA27B7BB81004FB66B /* NSMenuItem+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+extensions.swift"; sourceTree = "<group>"; };
 		1544BEE3273928AC008C657F /* LayoutConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstant.swift; sourceTree = "<group>"; };
 		15554888297BE77E0015499F /* ROTextViewScrollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTextViewScrollable.swift; sourceTree = "<group>"; };
+		155575C72A7565CD00A045B5 /* ROStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROStepper.swift; sourceTree = "<group>"; };
+		155575F32A967F7900A045B5 /* NSTableView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+extensions.swift"; sourceTree = "<group>"; };
 		1570952E2A3DEC0100C214FA /* RoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoLayout.swift; sourceTree = "<group>"; };
 		1574581A27EB273F00EABE9B /* ROTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTabViewController.swift; sourceTree = "<group>"; };
 		15B72FF228427C990010F5B4 /* MessageLooper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLooper.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 				15F25C1B27E2944300862432 /* ROTextField.swift */,
 				1574581A27EB273F00EABE9B /* ROTabViewController.swift */,
 				15554888297BE77E0015499F /* ROTextViewScrollable.swift */,
+				155575C72A7565CD00A045B5 /* ROStepper.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				151FA62527A59A25004FB66B /* NSWindow+extension.swift */,
 				151FA69C27B5E254004FB66B /* NSEvent+extension.swift */,
 				151FA6AA27B7BB81004FB66B /* NSMenuItem+extensions.swift */,
+				155575F32A967F7900A045B5 /* NSTableView+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 				15F58F1E2747E54C00C2A186 /* PopoverViewController.swift in Sources */,
 				150EA08227D40DBD00FF3331 /* ROLabelFieldPopoverController.swift in Sources */,
 				9DF6B82F2610D25C00C4287C /* ROGlobals.swift in Sources */,
+				155575C82A7565CD00A045B5 /* ROStepper.swift in Sources */,
 				15B72FF328427C990010F5B4 /* MessageLooper.swift in Sources */,
 				9DA2F3112628BED7006629FF /* NSControl+extenstion.swift in Sources */,
 				1544BEE4273928AC008C657F /* LayoutConstant.swift in Sources */,
@@ -418,6 +425,7 @@
 				9DF6B8CF2616095D00C4287C /* ROMenuTable.swift in Sources */,
 				9DF6B956261AFF9500C4287C /* ROTabViewController+TabController.swift in Sources */,
 				15F58F162747E31400C2A186 /* ROLocalizableUIElement.swift in Sources */,
+				155575F42A967F7900A045B5 /* NSTableView+extensions.swift in Sources */,
 				15F58F262749408B00C2A186 /* ROTableCellView.swift in Sources */,
 				9DF6B790260F934E00C4287C /* ROLocalizableStandardMenu.swift in Sources */,
 				9DF6B950261AFE8A00C4287C /* ROTabViewControllerOld.swift in Sources */,
