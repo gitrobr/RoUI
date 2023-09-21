@@ -31,6 +31,8 @@ open class ROLayoutConstant {
     }
     /// Diese Gruppe hat überall 0 Abstand
     public static let zero = ROLayoutConstantGroup(values: [ROLayoutConstant.LayoutType: CGFloat]())
+    public static let defaultView = ROLayoutConstantGroup(values: [.top: 10, .leading: 10, .trailing: -10,
+                                                                            .bottom: -10, .horizontal: 8, .vertical: 8])
     public static let popover = ROLayoutConstantGroup(values: [.top: 8, .bottom: -8, .leading: 8,
                                                                .trailing: -8, .horizontal: 8, .vertical: 8])
     /// Standartwert für eine TableCellView

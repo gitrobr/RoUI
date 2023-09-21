@@ -68,6 +68,13 @@ extension ROTableColumnDefinition where Self: CaseIterable {
         for item in Self.allCases where item.identifierString == colIdentifier.rawValue { return item }
         return nil
     }
+    /// Liefert die Columndefinition anhand vom der Tabellenspalte
+    /// - Parameter tableColumn: Die Tabellenspalte
+    /// - Returns: Columndefinition
+    public static func columnForTableColumn(_ tableColumn: NSTableColumn?) -> ROTableColumnDefinition? {
+        guard let identifier = tableColumn?.identifier else { return nil }
+        return Self.columnForIdentifier(identifier)
+    }
 }
 extension NSTableColumn {
     static public func tableColumnFromDefinition(_ definition: ROTableColumnDefinition) -> NSTableColumn {

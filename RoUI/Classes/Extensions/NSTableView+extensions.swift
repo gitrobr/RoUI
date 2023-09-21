@@ -29,5 +29,13 @@ extension NSTableView {
             }
         }
     }
-
+    /// Ermittelt anhand der Selection auf welcher Zeile ein neues Objekt eingefügt werden soll
+    ///
+    /// - Wenn keine Zeile ausgewählt ist wird am Anfang eingefügt
+    /// - Wenn eine Zeile ausgewählt ist wird auf dieser Zeile eingefügt
+    /// - Returns: Die Zeile für das neue Objekt
+    public func newObjectRow() -> Int {
+        if selectedRow < 0 { return 0 }
+        return selectedRow
+    }
 }

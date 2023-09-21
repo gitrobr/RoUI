@@ -19,7 +19,7 @@ open class RoLayout {
         self.group = group
     }
     private let mainView: NSView
-    private let group: ROLayoutConstantGroup
+    public let group: ROLayoutConstantGroup
 
     public func addFullToMain(view: NSView) {
         pAddSubviewIfNoteExists(view)
