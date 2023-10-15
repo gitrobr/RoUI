@@ -92,4 +92,16 @@ extension NSTableColumn {
 
         return column
     }
+    static public var defaultTableColumnDefinition: ROTableColumnDefinition {
+        enum Columns: String, ROTableColumnDefinition, CaseIterable {
+            static var tableIdentifierString: String { "" }
+            static var localizeTableForColumnHeader: String { "" }
+            static var localizeTableForColumnTooltip: String { "" }
+
+            case none
+        }
+        return Columns.none
+    }
 }
+
+
