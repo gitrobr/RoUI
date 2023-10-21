@@ -33,5 +33,24 @@ extension NSWindow {
             }
         }
     }
+    /**
+     Zeigt einen Alert als Sheed im Fenste an.
+     - parameter errorMessage: Fehlermeldung
+     - parameter messageText: Titel ( Default: LocalizableError.titleErrorGeneral )
+     - parameter answer: Wird beim Beenden des Dialogs ausgeführt
+     */
+    public func dialogErrorSheet(errorMessage: String,
+                                 messageText: String,
+                                 answer: ((NSApplication.ModalResponse) -> Void)? = nil ) {
+        let dialog = NSAlert()
+        dialog.messageText = messageText
+        dialog.informativeText = errorMessage
+        dialog.alertStyle = NSAlert.Style.critical
+        dialog.beginSheetModal(for: self) { (dialogAnswer) in
+            if let ans = answer {
+                ans(dialogAnswer)
+            }
+        }
+    }
 
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 public enum LocalizableStandardMenu: String, ROLocalizable {
     case about = "about"
@@ -68,6 +69,10 @@ public enum LocalizableStandardMenu: String, ROLocalizable {
     case useSelectionForReplace = "use selection for replace"
     case window = "window"
     case zoom = "zoom"
+
+    public var identifier: NSUserInterfaceItemIdentifier {
+        NSUserInterfaceItemIdentifier(self.rawValue)
+    }
 
     public static var tableName: String {
         return "LocalizableStandardMenu"

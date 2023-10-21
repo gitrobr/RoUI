@@ -19,6 +19,29 @@ public struct ROApp {
     }
 }
 
+/// Zeigt welche ModifierFlags aktuell gesetzt sind
+public struct KeyboardHelper {
+    /// Die Option-Taste ist gedrückt
+    static public var optionKeyIsDown: Bool {
+        let flags = NSEvent.modifierFlags
+        return flags.contains(.option)
+    }
+    /// Die Command-Taste ist gedrückt
+    static public var commandKeyIsDown: Bool {
+        let flags = NSEvent.modifierFlags
+        return flags.contains(.command)
+    }
+    /// Die Controll-Taste ist gedrückt
+    static public var controllKeyIsDown: Bool {
+        let flags = NSEvent.modifierFlags
+        return flags.contains(.control)
+    }
+    /// Die Shift-Taste ist gedrückt
+    static public var shiftKeyIsDown: Bool {
+        let flags = NSEvent.modifierFlags
+        return flags.contains(.shift)
+    }
+}
 public struct ROViewConstant {
     static public let leadingAnchor: CGFloat = 10.0
     static public let trailingAnchor: CGFloat = -10.0

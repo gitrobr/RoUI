@@ -20,7 +20,7 @@ open class ROTableCellView: NSView {
     /// - Parameter column: Column-Definition
     /// - Parameter layout: Mit diesem Layout wird die ContentView in die View gefügt
     required public init(column: ROTableColumnDefinition,
-                         layout: ROLayoutConstantGroup,
+                         layout: ROLayoutConstantGroup = ROLayoutConstant.defaultTableCellView,
                          withBottomLine: Bool = false) {
         pColumn = column
         pLayoutGroup = layout
@@ -33,6 +33,8 @@ open class ROTableCellView: NSView {
     required public init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     /// Die Definition der Column
     public var column: ROTableColumnDefinition { pColumn }
+    /// Das ausgewsählte Layout
+    public var layoutGroup: ROLayoutConstantGroup { pLayoutGroup }
     /// Setzt den Objektwert.
     ///
     /// Folgende überschreibbaren Funktionen werden aufgerufen
@@ -73,7 +75,7 @@ open class ROTableCellView: NSView {
     open func didSetObjectValue() { }
     private let pColumn: ROTableColumnDefinition
     private var pObjectValue: Any?
-    private var pLayoutGroup: ROLayoutConstantGroup
+    private let pLayoutGroup: ROLayoutConstantGroup
     private let pWithBottomLine: Bool
     private func pDidSetObjectValue(ovverriedEditable editable: Bool?) {
         let isEditable = editable ?? pColumn.isEditable
@@ -83,7 +85,8 @@ open class ROTableCellView: NSView {
     private func pSetupUI() {
         let cview = getContentView()
         addSubviewsForAutoLayout([cview])
-        addConstraints(pLayoutGroup.cFull(view: cview, to: self))
+        addConstraints(ROLayoutConstant.zero.cFull(view: cview, to: self))
+        //addConstraints(pLayoutGroup.cFull(view: cview, to: self))
     }
     open override func draw(_ dirtyRect: NSRect) {
         super .draw(dirtyRect)

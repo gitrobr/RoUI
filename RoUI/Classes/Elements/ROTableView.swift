@@ -13,6 +13,9 @@ import Cocoa
 
 }
 
+/// Erweiterte NSTableView
+///
+/// Die ROTableView ist in eine ScrollView eingebeted. Für Autolayout wird die scrollView verwendet
 open class ROTableView: NSTableView {
     public convenience init() {
         self.init( frame: CGRect())
@@ -32,6 +35,8 @@ open class ROTableView: NSTableView {
         pClipView.documentView = self
 
         pScrollView.borderType = .bezelBorder
+        pScrollView.focusRingType = .exterior
+
     }
 
     required public init?(coder: NSCoder) {
@@ -39,6 +44,12 @@ open class ROTableView: NSTableView {
     }
     /// Die ScrollView
     public var scrollView: NSScrollView { self.pScrollView }
+    public var withFocusRing: Bool {
+        get { pScrollView.focusRingType == .exterior }
+        set {
+            pScrollView.focusRingType = newValue ? .exterior : .none
+        }
+    }
     /**
      Erstellt die Columns anhand der Definitionen. Die erste Column in den Definitionen ist
      auch die Outline-Column

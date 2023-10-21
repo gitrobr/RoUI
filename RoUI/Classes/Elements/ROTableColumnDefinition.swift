@@ -7,7 +7,9 @@
 
 import Cocoa
 
+/// Definiert eine Spalte einer TableView
 public protocol ROTableColumnDefinition {
+    /// Eindeutiger String der die Table definiert
     static var tableIdentifierString: String { get }
     /// Lacalizable Tabelle für den Titel
     static var localizeTableForColumnHeader: String { get }
@@ -32,7 +34,7 @@ public protocol ROTableColumnDefinition {
 
 extension ROTableColumnDefinition where Self: RawRepresentable, Self.RawValue == String {
     public static var hasHeader: Bool { true }
-
+    /// Identifier der Column ( TableIdetifinerString + ":" + Column.rawValue
     public var identifierString: String {
         "\(Self.tableIdentifierString):\(self.rawValue)"
     }
@@ -58,7 +60,22 @@ extension ROTableColumnDefinition where Self: RawRepresentable, Self.RawValue ==
     public var hasHeader: Bool { Self.hasHeader}
     public var size: CGFloat? { nil }
 }
-
+extension ROTableColumnDefinition where Self: CaseIterable {
+    /// Liefert die Columndefinition anhand vom Columnidentifier
+    /// - Parameter colIdentifier: Identifier der Column
+    /// - Returns: Columndefinition
+    public static func columnForIdentifier(_ colIdentifier: NSUserInterfaceItemIdentifier) -> ROTableColumnDefinition? {
+        for item in Self.allCases where item.identifierString == colIdentifier.rawValue { return item }
+        return nil
+    }
+    /// Liefert die Columndefinition anhand vom der Tabellenspalte
+    /// - Parameter tableColumn: Die Tabellenspalte
+    /// - Returns: Columndefinition
+    public static func columnForTableColumn(_ tableColumn: NSTableColumn?) -> ROTableColumnDefinition? {
+        guard let identifier = tableColumn?.identifier else { return nil }
+        return Self.columnForIdentifier(identifier)
+    }
+}
 extension NSTableColumn {
     static public func tableColumnFromDefinition(_ definition: ROTableColumnDefinition) -> NSTableColumn {
         let column = NSTableColumn(identifier: definition.userInterfaceItemIdentifier)
@@ -75,4 +92,16 @@ extension NSTableColumn {
 
         return column
     }
+    static public var defaultTableColumnDefinition: ROTableColumnDefinition {
+        enum Columns: String, ROTableColumnDefinition, CaseIterable {
+            static var tableIdentifierString: String { "" }
+            static var localizeTableForColumnHeader: String { "" }
+            static var localizeTableForColumnTooltip: String { "" }
+
+            case none
+        }
+        return Columns.none
+    }
 }
+
+

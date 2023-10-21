@@ -43,9 +43,9 @@ open class ROPopoverViewController: NSViewController {
     required public init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     /// Der OK Button
-    let buttonOk = NSButton.pushButtonOk
+    public let buttonOk = NSButton.pushButtonOk
     /// Der Cancel Button
-    let buttonCancel = NSButton.pushButtonCancel
+    public let buttonCancel = NSButton.pushButtonCancel
     /// Anzeigen der Popovers
     /// - Parameters:
     ///   - view: Zu dieser View anzeigen

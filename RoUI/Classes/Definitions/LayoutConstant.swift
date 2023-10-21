@@ -31,8 +31,17 @@ open class ROLayoutConstant {
     }
     /// Diese Gruppe hat überall 0 Abstand
     public static let zero = ROLayoutConstantGroup(values: [ROLayoutConstant.LayoutType: CGFloat]())
+    public static let defaultView = ROLayoutConstantGroup(values: [.top: 10, .leading: 10, .trailing: -10,
+                                                                            .bottom: -10, .horizontal: 8, .vertical: 8])
     public static let popover = ROLayoutConstantGroup(values: [.top: 8, .bottom: -8, .leading: 8,
                                                                .trailing: -8, .horizontal: 8, .vertical: 8])
+    /// Standartwert für eine TableCellView
+    public static let defaultTableCellView = ROLayoutConstantGroup(values: [.top: 3, .bottom: -3, .leading: 0,
+                                                                            .trailing: -0, .horizontal: 8, .vertical: 8])
+    public static let defaultScrollinsplit = ROLayoutConstantGroup(values: [.top: 2, .leading: 2, .trailing: -3,
+                                                                            .bottom: -2, .horizontal: 8, .vertical: 8])
+    public static let defaultOutlineCellView = ROLayoutConstantGroup(values: [.top: 2, .leading: 2, .trailing: -3,
+                                                                            .bottom: -2, .horizontal: 8, .vertical: 8])
 
 }
 

@@ -25,11 +25,18 @@ extension NSTextField {
         return textfield
     }
 
-    func setFontTraitMasek(_ fontTraitMask: NSFontTraitMask) {
+    public func setFontTraitMasek(_ fontTraitMask: NSFontTraitMask) {
         let fontmanager = NSFontManager.shared
         if let font = self.font {
             self.font = fontmanager.convert(font, toHaveTrait: fontTraitMask)
         }
     }
+    public func setFontSize(_ fontSize: CGFloat) {
+        let fontmanager = NSFontManager.shared
+        if let font = self.font {
+            self.font = fontmanager.convert(font, toSize: fontSize)
+        }
+    }
+
 
 }
