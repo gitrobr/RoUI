@@ -41,6 +41,7 @@ open class ROOutlineView: NSOutlineView {
         self.pClipView.documentView = self
 
         self.pScrollView.borderType = .bezelBorder
+        self.pScrollView.focusRingType = .exterior
     }
 
     required public init?(coder: NSCoder) {
