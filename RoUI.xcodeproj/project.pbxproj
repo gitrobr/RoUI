@@ -12,6 +12,8 @@
 		151FA62627A59A25004FB66B /* NSWindow+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151FA62527A59A25004FB66B /* NSWindow+extension.swift */; };
 		151FA69D27B5E254004FB66B /* NSEvent+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151FA69C27B5E254004FB66B /* NSEvent+extension.swift */; };
 		151FA6AB27B7BB81004FB66B /* NSMenuItem+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151FA6AA27B7BB81004FB66B /* NSMenuItem+extensions.swift */; };
+		15361F262B42EF52009E74A9 /* ROEnumPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15361F252B42EF52009E74A9 /* ROEnumPopup.swift */; };
+		15361F282B42EFA1009E74A9 /* ROEnumPopupElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15361F272B42EFA1009E74A9 /* ROEnumPopupElement.swift */; };
 		1544BEE4273928AC008C657F /* LayoutConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544BEE3273928AC008C657F /* LayoutConstant.swift */; };
 		15554889297BE77E0015499F /* ROTextViewScrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15554888297BE77E0015499F /* ROTextViewScrollable.swift */; };
 		155575C82A7565CD00A045B5 /* ROStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155575C72A7565CD00A045B5 /* ROStepper.swift */; };
@@ -68,6 +70,8 @@
 		151FA62527A59A25004FB66B /* NSWindow+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+extension.swift"; sourceTree = "<group>"; };
 		151FA69C27B5E254004FB66B /* NSEvent+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+extension.swift"; sourceTree = "<group>"; };
 		151FA6AA27B7BB81004FB66B /* NSMenuItem+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+extensions.swift"; sourceTree = "<group>"; };
+		15361F252B42EF52009E74A9 /* ROEnumPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROEnumPopup.swift; sourceTree = "<group>"; };
+		15361F272B42EFA1009E74A9 /* ROEnumPopupElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROEnumPopupElement.swift; sourceTree = "<group>"; };
 		1544BEE3273928AC008C657F /* LayoutConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstant.swift; sourceTree = "<group>"; };
 		15554888297BE77E0015499F /* ROTextViewScrollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTextViewScrollable.swift; sourceTree = "<group>"; };
 		155575C72A7565CD00A045B5 /* ROStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROStepper.swift; sourceTree = "<group>"; };
@@ -132,6 +136,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15361F242B42EF2C009E74A9 /* ROEnumPopup */ = {
+			isa = PBXGroup;
+			children = (
+				15361F252B42EF52009E74A9 /* ROEnumPopup.swift */,
+				15361F272B42EFA1009E74A9 /* ROEnumPopupElement.swift */,
+			);
+			path = ROEnumPopup;
+			sourceTree = "<group>";
+		};
 		15B72FF128427C4E0010F5B4 /* MessageLooper */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +269,7 @@
 				1574581A27EB273F00EABE9B /* ROTabViewController.swift */,
 				15554888297BE77E0015499F /* ROTextViewScrollable.swift */,
 				155575C72A7565CD00A045B5 /* ROStepper.swift */,
+				15361F242B42EF2C009E74A9 /* ROEnumPopup */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -346,7 +360,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					9DF6B738260F777600C4287C = {
 						CreatedOnToolsVersion = 12.4;
@@ -426,6 +440,7 @@
 				9DF6B95A261B046D00C4287C /* NSImage+extensions.swift in Sources */,
 				9DF6B764260F784800C4287C /* ROWindow.swift in Sources */,
 				9DF6B8922614477700C4287C /* ROKeyCode.swift in Sources */,
+				15361F282B42EFA1009E74A9 /* ROEnumPopupElement.swift in Sources */,
 				15554889297BE77E0015499F /* ROTextViewScrollable.swift in Sources */,
 				151FA6AB27B7BB81004FB66B /* NSMenuItem+extensions.swift in Sources */,
 				15F25C1C27E2944300862432 /* ROTextField.swift in Sources */,
@@ -438,6 +453,7 @@
 				9DF6B790260F934E00C4287C /* ROLocalizableStandardMenu.swift in Sources */,
 				9DF6B950261AFE8A00C4287C /* ROTabViewControllerOld.swift in Sources */,
 				151FA62627A59A25004FB66B /* NSWindow+extension.swift in Sources */,
+				15361F262B42EF52009E74A9 /* ROEnumPopup.swift in Sources */,
 				9DF6B95E261B2AB500C4287C /* ROTabViewController+SetupUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
