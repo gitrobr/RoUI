@@ -232,7 +232,12 @@ extension RoLayout {
 
             upperView = lowerView
         }
-
+    }
+    public func lcColumnsToSuper(views: [NSView]) {
+        guard let firstView = views.first, let lastView = views.last else { return }
+        lcColumns(views: views)
+        lcViewToSuper(view: firstView, type: .top)
+        lcViewToSuper(view: lastView, type: .bottom)
     }
 }
 
@@ -240,7 +245,7 @@ extension RoLayout {
     public struct LayoutModel {
 
         public static var modelView: LayoutModel {
-            return LayoutModel(top: 10, bottom: -10, leading: 10, trailing: 10, horizontal: 8, vertical: 8)
+            return LayoutModel(top: 10, bottom: -10, leading: 10, trailing: -10, horizontal: 8, vertical: 8)
         }
         public static var modelZero: LayoutModel {
             return LayoutModel()
