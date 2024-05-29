@@ -8,6 +8,9 @@
 import Foundation
 import AppKit
 
+/// Objekt zum bilden von Layoutconstraints.
+///
+/// Die verwendeten Abstände werden im LayoutModel definiert. Die Constraints werden zur Superview hinzugefügt
 public struct RoLayout {
     /// Beschreibt an welche Seite die View an die SuperView geheftet werden soll
     public enum AttributeToSuper: CaseIterable {
@@ -29,17 +32,21 @@ public struct RoLayout {
                 return .trailing
             }
         }
-        /// Liefert die Typen um eine View auf allen Seiten anzuhängen
+        /// Liefert die Attribute um eine View auf allen Seiten anzuhängen
         public static var full: [AttributeToSuper] { [.leading, .top, .trailing, .bottom]}
-        /// Liefert die Typen um eine View links, oben und rechts anzuhängen
+        /// Liefert die Attribute um eine View links, oben und rechts anzuhängen
         public static var fullTop: [AttributeToSuper] { [.leading, .top, .trailing]}
-        /// Liefert die Typen um eine View links, unten und rechts anzuhängen
+        /// Liefert die Attribute um eine View links, unten und rechts anzuhängen
         public static var fullBottom: [AttributeToSuper] { [.leading, .bottom, .trailing]}
+        /// Liefer die Attribute um eine View links und rechts anzuhängen
+        public static var fullLine: [AttributeToSuper] {[.leading, .trailing]}
     }
+    /// Ausrichtung von Views innerhable der Superview
     public enum AttributeBetween {
         case horizontal
         case vertical
-
+        
+        /// Attribut für die erste View
         var firstViewAttribute: NSLayoutConstraint.Attribute {
             switch self {
             case .horizontal:
@@ -48,6 +55,7 @@ public struct RoLayout {
                 return .bottom
             }
         }
+        /// Attribut für die zweite View]
         var secondViewAttribute: NSLayoutConstraint.Attribute {
             switch self {
             case .horizontal:
