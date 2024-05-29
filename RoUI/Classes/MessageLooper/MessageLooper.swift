@@ -30,12 +30,15 @@ public protocol ROMessageType: Sendable {
     /// - Parameter sender: Der Absender
     ///
     /// Es wird eine Message erstellt und versendet
-    func send(sender: Any, delay: Double?, callback: ROMessageCallback?)
+    func send(sender: AnyObject, delay: Double?, callback: ROMessageCallback?)
 }
 
 public typealias ROMessageCallback = () -> Void
 
 open class ROMessageLooper {
+    /// initialisiere der Loopers
+    public init() {
+    }
 
     /// Registriert einen Empfänger
     /// - Parameters:

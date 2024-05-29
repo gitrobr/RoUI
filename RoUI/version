@@ -1,3 +1,10 @@
+1.0.4
+
+Neue:
+- ROMessageLooper: Messages werden jetzt als enum erfasst
+Korrektur:
+Intern:
+
 1.0.3
 
 Neue:
@@ -5,7 +12,6 @@ Neue:
 Korrektur:
 - ROOutlineView hat jetzt auch einen Focusring
 Intern:
-
 
 1.0.2
 
