@@ -12,8 +12,111 @@ public protocol MessageLooperReceiver: AnyObject {
     func messageDelivery(_ message: MessageLooper.Message)
 }
 
-public typealias MessageCallback = () -> Void
+/// Protokol um Messages zu empfangen
+public protocol ROMessageLooperReceiver: AnyObject {
+    func messageDelivery(_ message: ROMessageLooper.Message)
+}
 
+/// Definition der Benachrichtigung
+///
+/// Die Meldungen werden in einem enum definiert
+/// ```
+///  enum MessageType: ROMessage {
+///     case message
+///  }
+///  ```
+public protocol ROMessageType: Sendable {
+    /// Versenden der Message
+    /// - Parameter sender: Der Absender
+    ///
+    /// Es wird eine Message erstellt und versendet
+    func send(sender: AnyObject, delay: Double?, callback: ROMessageCallback?)
+}
+
+public typealias ROMessageCallback = () -> Void
+
+open class ROMessageLooper {
+    /// initialisiere der Loopers
+    public init() {
+    }
+
+    /// Registriert einen Empfänger
+    /// - Parameters:
+    ///   - receiver: Der Empfänger
+    ///   - priority: Die Priorität
+    public func registerReceivers(_ receiver: ROMessageLooperReceiver, priority: Int = 99) {
+        let rec = LooperRecord(receiver: receiver, priority: priority)
+        pReceivers.append(rec)
+        pReceivers.sort()
+    }
+    /// Eine Message senden.
+    /// - Parameters:
+    ///   - message: Die Message
+    ///   - delay: Die Message wird nach soviel Sekunden gesendet ( Default: nil - sofort )
+    ///   - callback: Callback wenn die Message überall verarbeitet wurde( Default: nil )
+    public func sendMessage(_ message: ROMessageLooper.Message,
+                            delay: Double? = nil,
+                            callback: ROMessageCallback? = nil) {
+        if let delay = delay {
+            pSendMessageWithDelay(message, delay: delay, callback: callback)
+        } else {
+            pSendMessage(message, callback: callback)
+        }
+    }
+    public func pSendMessage(_ message: Message, callback: ROMessageCallback? = nil) {
+        pReceivers.forEach({
+            if !($0 === message.sender) { $0.receiver.messageDelivery(message) }
+        })
+        if let callb = callback { callb() }
+    }
+    public func pSendMessageWithDelay(_ message: Message, delay: Double, callback: ROMessageCallback? = nil) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.pReceivers.forEach({
+                if !($0 === message.sender) { $0.receiver.messageDelivery(message) }
+            })
+            if let callb = callback { callb() }
+        }
+    }
+
+    private var pReceivers: [LooperRecord] = []
+}
+
+extension ROMessageLooper {
+    /// Eine Message die versendet / empfangen wird
+    public class Message {
+        /// Initialisier eine Message
+        /// - Parameters:
+        ///   - sender: Der Absender
+        ///   - type: Der Messagetype
+        public init(sender: AnyObject, type: ROMessageType) {
+            self.sender = sender
+            self.type = type
+        }
+        /// Der Absender der Nachricht
+        public let sender: AnyObject
+        /// Die Nachricht
+        public let type: ROMessageType
+    }
+
+    /// Interne Struktur zum festhalten der registrierten Empfänger
+    class LooperRecord: Comparable {
+        static func < (lhs: ROMessageLooper.LooperRecord, rhs: ROMessageLooper.LooperRecord) -> Bool {
+            lhs.priority < rhs.priority
+        }
+
+        static func == (lhs: ROMessageLooper.LooperRecord, rhs: ROMessageLooper.LooperRecord) -> Bool {
+            lhs.priority == rhs.priority
+        }
+
+        let priority: Int
+        let receiver: ROMessageLooperReceiver
+
+        init(receiver: ROMessageLooperReceiver, priority: Int) {
+            self.priority = priority
+            self.receiver = receiver
+        }
+    }
+}
 /// Erlaupt es Nachrichten innerhalb der Applikation zu senden
 ///
 /// Der Empfänger wird mit registerReceivers registriert und muss MessageLooperReceiver implementieren
@@ -35,20 +138,20 @@ open class MessageLooper {
     ///   - message: Die Message
     ///   - delay: Die Message wird nach soviel Sekunden gesendet ( Default: nil - sofort )
     ///   - callback: Callback wenn die Message überall verarbeitet wurde( Default: nil )
-    public func sendMessage(_ message: MessageLooper.Message, delay: Double? = nil, callback: MessageCallback? = nil) {
+    public func sendMessage(_ message: MessageLooper.Message, delay: Double? = nil, callback: ROMessageCallback? = nil) {
         if let delay = delay {
             pSendMessageWithDelay(message, delay: delay, callback: callback)
         } else {
             pSendMessage(message, callback: callback)
         }
     }
-    public func pSendMessage(_ message: MessageLooper.Message, callback: MessageCallback? = nil) {
+    public func pSendMessage(_ message: MessageLooper.Message, callback: ROMessageCallback? = nil) {
         pReceivers.forEach({
             if !($0 === message.sender) { $0.receiver.messageDelivery(message) }
         })
         if let callb = callback { callb() }
     }
-    public func pSendMessageWithDelay(_ message: MessageLooper.Message, delay: Double, callback: MessageCallback? = nil) {
+    public func pSendMessageWithDelay(_ message: MessageLooper.Message, delay: Double, callback: ROMessageCallback? = nil) {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             self.pReceivers.forEach({
                 if !($0 === message.sender) { $0.receiver.messageDelivery(message) }
