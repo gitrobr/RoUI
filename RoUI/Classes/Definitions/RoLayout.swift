@@ -227,12 +227,12 @@ extension RoLayout {
     public func lcViewToView(firstView: NSView,
                              secondView: NSView,
                              type: RoLayout.AttributeBetween,
-                             laOperator: RoLayout.Relation = .eq) {
+                             relation: RoLayout.Relation = .eq) {
         doubleViewConstraint(firstview: secondView,
                              secondview: firstView,
                              firstattribut: type.secondViewAttribute,
                              secondattribut: type.firstViewAttribute,
-                             related: laOperator.relation,
+                             related: relation.relation,
                              multiplier: 1,
                              constant: model.valueForType(type))
     }
@@ -243,10 +243,10 @@ extension RoLayout {
     ///   - laOperator: Der Operateor (Default .eq)
     public func lcViewToSuper(view: NSView,
                               type: RoLayout.AttributeToSuper,
-                              laOperator: RoLayout.Relation = .eq) {
+                              relation: RoLayout.Relation = .eq) {
         addViewRelatedToSuper(view,
                               attribute: type.attribute,
-                              relation: laOperator.relation,
+                              relation: relation.relation,
                               constant: model.valueForType(type))
     }
     /// Bildet die Constrains um die View an mehrere Seiten der Superview zu heften
@@ -256,11 +256,11 @@ extension RoLayout {
     ///   - laOperator: Der Operateor (Default .eq)
     public func lcViewToSuper(view: NSView,
                               types: [RoLayout.AttributeToSuper],
-                              laOperator: RoLayout.Relation = .eq) {
+                              relation: RoLayout.Relation = .eq) {
         for type in types {
             addViewRelatedToSuper(view,
                                   attribute: type.attribute,
-                                  relation: laOperator.relation,
+                                  relation: relation.relation,
                                   constant: model.valueForType(type))
         }
     }
@@ -271,9 +271,9 @@ extension RoLayout {
     ///   - laOperator: Der Operateor (Default .eq)
     public func lcViewsToSuper(views: [NSView], 
                                types: [RoLayout.AttributeToSuper],
-                               laOperator: RoLayout.Relation = .eq) {
+                               relation: RoLayout.Relation = .eq) {
         views.forEach({
-            self.lcViewToSuper(view: $0, types: types, laOperator: laOperator)
+            self.lcViewToSuper(view: $0, types: types, relation: relation)
         })
     }
     /// Ordnet die Views von links nach Rechts ohne sie an die Superview zu heften
@@ -282,6 +282,7 @@ extension RoLayout {
     ///   - layoutHorizontal: Die Ausrichtung (Default centerY)
     public func lcLine(views: [NSView], layoutHorizontal: RoLayout.LayoutHorizontal = .centerY) {
         guard let firstView = views.first, views.count > 1 else { return }
+        lcSameAttribute(views: views, attribute: layoutHorizontal.attribute)
         var leftView = firstView
         for idx in 1..<views.count {
             let rightView = views[idx]
@@ -290,14 +291,6 @@ extension RoLayout {
                               rightView: rightView,
                               relation: .equal,
                               constant: model.horizontal)
-            doubleViewConstraint(firstview: rightView,
-                                 secondview: firstView,
-                                 firstattribut: layoutHorizontal.attribute,
-                                 secondattribut: layoutHorizontal.attribute,
-                                 related: .equal,
-                                 multiplier: 1,
-                                 constant: 0)
-
             leftView = rightView
         }
     }
@@ -310,7 +303,7 @@ extension RoLayout {
         guard let firstView = views.first, let lastView = views.last else { return }
         lcLine(views: views, layoutHorizontal: layoutHorizontal)
         lcViewToSuper(view: firstView, type: .leading)
-        lcViewToSuper(view: lastView, type: .trailing, laOperator: fitLast ? .eq : .le)
+        lcViewToSuper(view: lastView, type: .trailing, relation: fitLast ? .eq : .le)
     }
     /// Ordnet die Views von Oben nach Unten an ohne an die Superview zu heften
     /// - Parameter views: Die Views (von Oben nach Unten)
@@ -336,7 +329,7 @@ extension RoLayout {
         lcColumn(views: views)
         lcViewToSuper(view: firstView, type: .top)
         let oper = fitLast ? Relation.eq : Relation.le
-        lcViewToSuper(view: lastView, type: .bottom, laOperator: oper)
+        lcViewToSuper(view: lastView, type: .bottom, relation: oper)
     }
     
     /// Bildet die Constraints für die Viewgrösse
@@ -348,25 +341,21 @@ extension RoLayout {
     public func lcViewSize(view: NSView,
                            size: LayoutSize,
                            constant: CGFloat,
-                           constraintOperator: Relation = .eq) {
+                           relation: Relation = .eq) {
         singleViewConstraint(view: view,
                              attribut: size.attribute,
-                             related: constraintOperator.relation,
+                             related: relation.relation,
                              multiplier: 1,
                              constant: constant)
     }
-    /// Bildet die Constraints um die Views gleich gross zu machen
-    /// - Parameters:
-    ///   - views: Die Views
-    ///   - size: Die Ausrichtung
-    public func lcSameSize(views: [NSView],size: LayoutSize) {
+    public func lcSameAttribute(views: [NSView], attribute: NSLayoutConstraint.Attribute) {
         guard let firstView = views.first, views.count > 1 else { return }
         for idx in 1..<views.count {
             let view = views[idx]
             doubleViewConstraint(firstview: view,
                                  secondview: firstView,
-                                 firstattribut: size.attribute,
-                                 secondattribut: size.attribute,
+                                 firstattribut: attribute,
+                                 secondattribut: attribute,
                                  related: .equal,
                                  multiplier: 1,
                                  constant: 0)
@@ -404,6 +393,9 @@ extension RoLayout {
         }
         public static var modelTableCellView: LayoutModel {
             return LayoutModel(top: 3, bottom: -3, leading: 0,trailing: -0, horizontal: 8, vertical: 8)
+        }
+        public static var modelOutlineCellView: LayoutModel {
+            return LayoutModel(top: 2, bottom: -2, leading: 2,trailing: -3, horizontal: 8, vertical: 8)
         }
         public static var modelPopoverView: LayoutModel {
             return LayoutModel(top: 8, bottom: -8, leading: 8, trailing: -8, horizontal: 8, vertical: 8)
