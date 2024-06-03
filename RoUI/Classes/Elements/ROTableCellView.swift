@@ -18,12 +18,9 @@ import Cocoa
 open class ROTableCellView: NSView {
     /// initialisieren
     /// - Parameter column: Column-Definition
-    /// - Parameter layout: Mit diesem Layout wird die ContentView in die View gefügt
     required public init(column: ROTableColumnDefinition,
-                         layout: ROLayoutConstantGroup = ROLayoutConstant.defaultTableCellView,
                          withBottomLine: Bool = false) {
         pColumn = column
-        pLayoutGroup = layout
         pWithBottomLine = withBottomLine
         super.init(frame: CGRect())
         translatesAutoresizingMaskIntoConstraints = false
@@ -33,8 +30,6 @@ open class ROTableCellView: NSView {
     required public init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     /// Die Definition der Column
     public var column: ROTableColumnDefinition { pColumn }
-    /// Das ausgewsählte Layout
-    public var layoutGroup: ROLayoutConstantGroup { pLayoutGroup }
     /// Setzt den Objektwert.
     ///
     /// Folgende überschreibbaren Funktionen werden aufgerufen
@@ -75,7 +70,6 @@ open class ROTableCellView: NSView {
     open func didSetObjectValue() { }
     private let pColumn: ROTableColumnDefinition
     private var pObjectValue: Any?
-    private let pLayoutGroup: ROLayoutConstantGroup
     private let pWithBottomLine: Bool
     private func pDidSetObjectValue(ovverriedEditable editable: Bool?) {
         let isEditable = editable ?? pColumn.isEditable
@@ -84,9 +78,8 @@ open class ROTableCellView: NSView {
     }
     private func pSetupUI() {
         let cview = getContentView()
-        addSubviewsForAutoLayout([cview])
-        addConstraints(ROLayoutConstant.zero.cFull(view: cview, to: self))
-        //addConstraints(pLayoutGroup.cFull(view: cview, to: self))
+        let layout = RoLayout(model: .modelZero, superView: self)
+        layout.lcViewToSuper(view: cview, types: RoLayout.AttributeToSuper.full)
     }
     open override func draw(_ dirtyRect: NSRect) {
         super .draw(dirtyRect)

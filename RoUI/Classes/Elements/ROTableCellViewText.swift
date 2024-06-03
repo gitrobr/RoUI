@@ -11,9 +11,8 @@ import AppKit
 open class ROTableCellViewText: ROTableCellView, NSTextFieldDelegate {
     public init(column: ROTableColumnDefinition,
          formatter: Formatter? = nil,
-         layout: ROLayoutConstantGroup,
          withBottomLine: Bool = false) {
-        super.init(column: column, layout: layout, withBottomLine:  withBottomLine)
+        super.init(column: column, withBottomLine:  withBottomLine)
         pSetupTextField(formatter: formatter)
     }
 
@@ -22,11 +21,11 @@ open class ROTableCellViewText: ROTableCellView, NSTextFieldDelegate {
     }
 
     required public init(column: ROTableColumnDefinition) {
-        super.init(column: column, layout: ROLayoutConstant.defaultTableCellView)
+        super.init(column: column)
         pSetupTextField(formatter: nil)
     }
 
-    required public init(column: ROTableColumnDefinition, layout: ROLayoutConstantGroup, withBottomLine: Bool = false) {
+    required public init(column: ROTableColumnDefinition, withBottomLine: Bool = false) {
         fatalError("init(column:layout:withBottomLine:) has not been implemented")
     }
     public let fieldText = NSTextField()

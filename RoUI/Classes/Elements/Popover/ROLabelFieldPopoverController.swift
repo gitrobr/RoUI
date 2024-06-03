@@ -67,14 +67,10 @@ extension ROLabelFieldPopoverController {
     private func pSetupUIElements() {
     }
     private func pSetupView() {
-        view.addSubviewsForAutoLayout([
-            label, field
-        ])
-        view.addConstraints(ROLayoutConstant.popover.cLineToSuper(views: [label, field], to: view))
-        view.addConstraints([
-            ROLayoutConstant.popover.top.cEQ(view: label, to: view),
-            pWidthContraintField
-        ])
-        addButtonsAtBottomOfView(upperView: label, layout: ROLayoutConstant.popover)
+        let layout = RoLayout(model: .modelPopoverView, superView: view)
+        layout.lcLineToSuper(views: [label, field])
+        layout.lcViewToSuper(view: label, type: .top)
+        view.addConstraint(pWidthContraintField)
+        addButtonsAtBottomOfView(upperView: label, layout: layout)
     }
 }
