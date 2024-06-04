@@ -169,7 +169,7 @@ extension RoLayout {
                                             multiplier: multiplier,
                                             constant: constant)
         pAddSubviewIfNoteExists(firstview)
-        //pAddSubviewIfNoteExists(secondview)
+        pAddSubviewIfNoteExists(secondview)
         superView.addConstraint(constraint)
         constraint.isActive = true
         //print("doubleViewConstraint: \(constraint)")
