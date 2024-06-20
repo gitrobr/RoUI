@@ -2,6 +2,7 @@
 
 Neue:
 - ROMessageLooper: Messages werden jetzt als enum erfasst
+- RoLayout: Neues Layout-Tool
 Korrektur:
 Intern:
 

@@ -90,18 +90,12 @@ open class ROPopoverViewController: NSViewController {
     ///
     /// Die upperView muss schon als Subview vorhanden sein
     /// - Parameter upperView: Unterhalb dieser View werden die Buttons platziert
-    /// - Parameter layout: LayoutConstantGroup die zum Plazieren verwendet wird
-    public func addButtonsAtBottomOfView(upperView: NSView, layout: ROLayoutConstantGroup) {
-        view.addSubviewsForAutoLayout([
-            buttonOk, buttonCancel
-        ])
-        view.addConstraints(layout.cLeftRight(leftView: buttonOk,
-                                                      rightView: buttonCancel, to: view))
-        view.addConstraints(layout.cSameWitdh(views: [buttonOk, buttonCancel]))
-        view.addConstraints([
-            layout.vertical.cEQ(view: buttonOk, to: upperView),
-            layout.bottom.cEQ(view: buttonOk, to: view)
-        ])
+    /// - Parameter layout: das verwendete Layout
+    public func addButtonsAtBottomOfView(upperView: NSView, layout: RoLayout) {
+        layout.lcLeftRightViewToSuper(leftView: buttonOk, rightView: buttonCancel)
+        layout.lcSameAttribute(views: [buttonOk, buttonCancel], attribute: .width)
+        layout.lcViewToView(firstView: upperView, secondView: buttonOk, type: .vertical)
+        layout.lcViewToSuper(view: buttonOk, type: .bottom)
     }
     /// Schliesst das Popover-Window
     public func closePopover() {

@@ -18,7 +18,6 @@ public struct ROApp {
         return .lightMode
     }
 }
-
 /// Zeigt welche ModifierFlags aktuell gesetzt sind
 public struct KeyboardHelper {
     /// Die Option-Taste ist gedrückt
@@ -41,21 +40,4 @@ public struct KeyboardHelper {
         let flags = NSEvent.modifierFlags
         return flags.contains(.shift)
     }
-}
-public struct ROViewConstant {
-    static public let leadingAnchor: CGFloat = 10.0
-    static public let trailingAnchor: CGFloat = -10.0
-    static public let topAnchor: CGFloat = 10.0
-    static public let bottomAnchor: CGFloat = -10.0
-    static public let hBetweenElements: CGFloat = 8.0
-    static public let vBetweenElements: CGFloat = 8.0
-}
-
-public struct ROTableViewConstant {
-    static public let leadingAnchor: CGFloat = 5.0
-    static public let trailingAnchor: CGFloat = -5.0
-    static public let topAnchor: CGFloat = 5.0
-    static public let bottomAnchor: CGFloat = -5.0
-    static public let hBetweenElements: CGFloat = 8.0
-    static public let vBetweenElements: CGFloat = 3.0
 }
