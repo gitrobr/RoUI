@@ -152,7 +152,6 @@ extension RoLayout {
         pAddSubviewIfNoteExists(view)
         superView.addConstraint(constraint)
         constraint.isActive = true
-        //print("singleViewConstraint: \(constraint)")
     }
     func doubleViewConstraint(firstview: NSView,
                               secondview: NSView,
@@ -172,8 +171,6 @@ extension RoLayout {
         pAddSubviewIfNoteExists(secondview)
         superView.addConstraint(constraint)
         constraint.isActive = true
-        //print("doubleViewConstraint: \(constraint)")
-
     }
 
     func addViewRelatedToSuper(_ view: NSView,
@@ -224,7 +221,7 @@ extension RoLayout {
     ///   - firstView: Erste View
     ///   - secondView: Zweite View
     ///   - type: Der Constrainttyp
-    ///   - laOperator: Der Operator
+    ///   - relation: Art der Verbindung
     public func lcViewToView(firstView: NSView,
                              secondView: NSView,
                              type: RoLayout.AttributeBetween,
@@ -241,7 +238,7 @@ extension RoLayout {
     /// - Parameters:
     ///   - view: Die View
     ///   - type: Der Type
-    ///   - laOperator: Der Operateor (Default .eq)
+    ///   - relation: Art der Verbindung
     public func lcViewToSuper(view: NSView,
                               type: RoLayout.AttributeToSuper,
                               relation: RoLayout.Relation = .eq) {
@@ -254,7 +251,7 @@ extension RoLayout {
     /// - Parameters:
     ///   - view: Die View
     ///   - types: Der Types
-    ///   - laOperator: Der Operateor (Default .eq)
+    ///   - relation: Art der Verbindung
     public func lcViewToSuper(view: NSView,
                               types: [RoLayout.AttributeToSuper],
                               relation: RoLayout.Relation = .eq) {
@@ -269,8 +266,8 @@ extension RoLayout {
     /// - Parameters:
     ///   - views: Die Views
     ///   - types: Der Types
-    ///   - laOperator: Der Operateor (Default .eq)
-    public func lcViewsToSuper(views: [NSView], 
+    ///   - relation: Art der Verbindung
+    public func lcViewsToSuper(views: [NSView],
                                types: [RoLayout.AttributeToSuper],
                                relation: RoLayout.Relation = .eq) {
         views.forEach({
@@ -300,7 +297,9 @@ extension RoLayout {
     ///   - views: Die Views (von Links nach Rechts)
     ///   - layoutHorizontal: Die Ausrichtung (Default centerY)
     ///   - fitLast: true: die rechte View wird mit eq an die Superview geheftet. Sonst mit le
-    public func lcLineToSuper(views: [NSView], layoutHorizontal: RoLayout.LayoutHorizontal = .centerY, fitLast: Bool = true) {
+    public func lcLineToSuper(views: [NSView],
+                              layoutHorizontal: RoLayout.LayoutHorizontal = .centerY,
+                              fitLast: Bool = true) {
         guard let firstView = views.first, let lastView = views.last else { return }
         lcLine(views: views, layoutHorizontal: layoutHorizontal)
         lcViewToSuper(view: firstView, type: .leading)
@@ -324,7 +323,7 @@ extension RoLayout {
     }
     /// Ordnet die Views von Oben nach Unten an ohne an die Superview zu heften
     /// - Parameter views: Die Views (von Oben nach Unten)
-    ///   - fitLast: true: die untere View wird mit eq an die Superview geheftet. Sonst mit le
+    /// - Parameter fitLast: true: die untere View wird mit eq an die Superview geheftet. Sonst mit le
     public func lcColumnToSuper(views: [NSView], fitLast: Bool = true) {
         guard let firstView = views.first, let lastView = views.last else { return }
         lcColumn(views: views)
@@ -338,7 +337,7 @@ extension RoLayout {
     ///   - view: Die View
     ///   - size: Die Richtung
     ///   - constant: Die Grösse
-    ///   - constraintOperator: Der Operator (Default eq)
+    ///   - relation: Art der Verbindung
     public func lcViewSize(view: NSView,
                            size: LayoutSize,
                            constant: CGFloat,
@@ -367,7 +366,9 @@ extension RoLayout {
     ///   - leftView: Die linke View
     ///   - rightView: Die rechte View
     ///   - layoutHorizontal: Die horizontale Ausrichtung (Default centerY)
-    public func lcLeftRightViewToSuper(leftView: NSView, rightView: NSView, layoutHorizontal: RoLayout.LayoutHorizontal = .centerY) {
+    public func lcLeftRightViewToSuper(leftView: NSView,
+                                       rightView: NSView,
+                                       layoutHorizontal: RoLayout.LayoutHorizontal = .centerY) {
         lcViewToSuper(view: leftView, type: .leading)
         lcViewToSuper(view: rightView, type: .trailing)
         addLeftRightViews(leftView: leftView,

@@ -28,14 +28,32 @@ public protocol ROMessageLooperReceiver: AnyObject {
 public protocol ROMessageType: Sendable {
     /// Versenden der Message
     /// - Parameter sender: Der Absender
+    /// - Parameter delay: Die Message wird nach soviel Sekunden gesendet ( Default: nil - sofort )
+    /// - Parameter callback: Callback wenn die Message überall verarbeitet wurde( Default: nil )
     ///
     /// Es wird eine Message erstellt und versendet
     func send(sender: AnyObject, delay: Double?, callback: ROMessageCallback?)
 }
 
+extension ROMessageType where Self: Sendable {
+    public func send(sender: AnyObject, delay: Double? = nil, callback: ROMessageCallback? = nil) {
+        let message = ROMessageLooper.Message(sender: sender, type: self)
+        ROMessageLooper.main.sendMessage(message, delay: delay, callback: callback)
+    }
+}
+
 public typealias ROMessageCallback = () -> Void
 
 open class ROMessageLooper {
+
+    private static var pMessageLooper: ROMessageLooper?
+    public static var main: ROMessageLooper {
+        if let pMessageLooper {
+            return pMessageLooper
+        }
+        pMessageLooper = ROMessageLooper()
+        return pMessageLooper!
+    }
     /// initialisiere der Loopers
     public init() {
     }
