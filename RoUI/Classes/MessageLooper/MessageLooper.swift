@@ -47,6 +47,7 @@ public typealias ROMessageCallback = () -> Void
 open class ROMessageLooper {
 
     private static var pMessageLooper: ROMessageLooper?
+    /// The shared MessageLooperObject for the process
     public static var main: ROMessageLooper {
         if let pMessageLooper {
             return pMessageLooper
@@ -156,7 +157,9 @@ open class MessageLooper {
     ///   - message: Die Message
     ///   - delay: Die Message wird nach soviel Sekunden gesendet ( Default: nil - sofort )
     ///   - callback: Callback wenn die Message überall verarbeitet wurde( Default: nil )
-    public func sendMessage(_ message: MessageLooper.Message, delay: Double? = nil, callback: ROMessageCallback? = nil) {
+    public func sendMessage(_ message: MessageLooper.Message,
+                            delay: Double? = nil,
+                            callback: ROMessageCallback? = nil) {
         if let delay = delay {
             pSendMessageWithDelay(message, delay: delay, callback: callback)
         } else {
