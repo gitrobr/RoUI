@@ -31,14 +31,20 @@ public protocol ROMessageType: Sendable {
     /// - Parameter delay: Die Message wird nach soviel Sekunden gesendet ( Default: nil - sofort )
     /// - Parameter callback: Callback wenn die Message überall verarbeitet wurde( Default: nil )
     ///
-    /// Es wird eine Message erstellt und versendet
+    /// Es wird eine Message erstellt und versendet ( RoMessageLooper.main )
     func send(sender: AnyObject, delay: Double?, callback: ROMessageCallback?)
+    /// Es wird eine Message erstellt und versendet
+    func send(sender: AnyObject, messageLooper: ROMessageLooper, delay: Double?, callback: ROMessageCallback?)
 }
 
 extension ROMessageType where Self: Sendable {
     public func send(sender: AnyObject, delay: Double? = nil, callback: ROMessageCallback? = nil) {
         let message = ROMessageLooper.Message(sender: sender, type: self)
         ROMessageLooper.main.sendMessage(message, delay: delay, callback: callback)
+    }
+    public func send(sender: AnyObject, messageLooper: ROMessageLooper, delay: Double?, callback: ROMessageCallback?) {
+        let message = ROMessageLooper.Message(sender: sender, type: self)
+        messageLooper.sendMessage(message, delay: delay, callback: callback)
     }
 }
 
