@@ -42,7 +42,10 @@ extension ROMessageType where Self: Sendable {
         let message = ROMessageLooper.Message(sender: sender, type: self)
         ROMessageLooper.main.sendMessage(message, delay: delay, callback: callback)
     }
-    public func send(sender: AnyObject, messageLooper: ROMessageLooper, delay: Double?, callback: ROMessageCallback?) {
+    public func send(sender: AnyObject,
+                     messageLooper: ROMessageLooper,
+                     delay: Double? = nil,
+                     callback: ROMessageCallback? = nil) {
         let message = ROMessageLooper.Message(sender: sender, type: self)
         messageLooper.sendMessage(message, delay: delay, callback: callback)
     }

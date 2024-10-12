@@ -268,6 +268,7 @@
 				1574581A27EB273F00EABE9B /* ROTabViewController.swift */,
 				15554888297BE77E0015499F /* ROTextViewScrollable.swift */,
 				155575C72A7565CD00A045B5 /* ROStepper.swift */,
+				15E9028E2CB2AB5600B81CBB /* RODocumentViewController.swift */,
 				15361F242B42EF2C009E74A9 /* ROEnumPopup */,
 			);
 			path = Elements;
@@ -297,7 +298,6 @@
 				9DF6B94F261AFE8A00C4287C /* ROTabViewControllerOld.swift */,
 				9DF6B95D261B2AB500C4287C /* ROTabViewController+SetupUI.swift */,
 				9DF6B955261AFF9500C4287C /* ROTabViewController+TabController.swift */,
-				15E9028E2CB2AB5600B81CBB /* RODocumentViewController.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
