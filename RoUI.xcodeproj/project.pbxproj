@@ -21,6 +21,7 @@
 		1574581B27EB273F00EABE9B /* ROTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1574581A27EB273F00EABE9B /* ROTabViewController.swift */; };
 		159889542AACC8A50069898B /* Int+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159889532AACC8A50069898B /* Int+extension.swift */; };
 		15B72FF328427C990010F5B4 /* MessageLooper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B72FF228427C990010F5B4 /* MessageLooper.swift */; };
+		15E9028F2CB2AB5600B81CBB /* RODocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9028E2CB2AB5600B81CBB /* RODocumentViewController.swift */; };
 		15F25C1C27E2944300862432 /* ROTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F25C1B27E2944300862432 /* ROTextField.swift */; };
 		15F58F162747E31400C2A186 /* ROLocalizableUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F58F152747E31400C2A186 /* ROLocalizableUIElement.swift */; };
 		15F58F192747E3DB00C2A186 /* ROLocalizableUIElement.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F58F1B2747E3DB00C2A186 /* ROLocalizableUIElement.strings */; };
@@ -78,6 +79,7 @@
 		1574581A27EB273F00EABE9B /* ROTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTabViewController.swift; sourceTree = "<group>"; };
 		159889532AACC8A50069898B /* Int+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extension.swift"; sourceTree = "<group>"; };
 		15B72FF228427C990010F5B4 /* MessageLooper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLooper.swift; sourceTree = "<group>"; };
+		15E9028E2CB2AB5600B81CBB /* RODocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RODocumentViewController.swift; sourceTree = "<group>"; };
 		15F25C1B27E2944300862432 /* ROTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROTextField.swift; sourceTree = "<group>"; };
 		15F58F152747E31400C2A186 /* ROLocalizableUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROLocalizableUIElement.swift; sourceTree = "<group>"; };
 		15F58F1A2747E3DB00C2A186 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ROLocalizableUIElement.strings; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				1574581A27EB273F00EABE9B /* ROTabViewController.swift */,
 				15554888297BE77E0015499F /* ROTextViewScrollable.swift */,
 				155575C72A7565CD00A045B5 /* ROStepper.swift */,
+				15E9028E2CB2AB5600B81CBB /* RODocumentViewController.swift */,
 				15361F242B42EF2C009E74A9 /* ROEnumPopup */,
 			);
 			path = Elements;
@@ -357,7 +360,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					9DF6B738260F777600C4287C = {
 						CreatedOnToolsVersion = 12.4;
@@ -447,6 +450,7 @@
 				155575F42A967F7900A045B5 /* NSTableView+extensions.swift in Sources */,
 				15F58F262749408B00C2A186 /* ROTableCellView.swift in Sources */,
 				9DF6B790260F934E00C4287C /* ROLocalizableStandardMenu.swift in Sources */,
+				15E9028F2CB2AB5600B81CBB /* RODocumentViewController.swift in Sources */,
 				9DF6B950261AFE8A00C4287C /* ROTabViewControllerOld.swift in Sources */,
 				151FA62627A59A25004FB66B /* NSWindow+extension.swift in Sources */,
 				15361F262B42EF52009E74A9 /* ROEnumPopup.swift in Sources */,
@@ -647,6 +651,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.broncaglioni.RoUI;
@@ -679,6 +684,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.broncaglioni.RoUI;
@@ -691,7 +697,6 @@
 		9DF6B751260F777700C4287C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -702,6 +707,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.broncaglioni.RoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -711,7 +717,6 @@
 		9DF6B752260F777700C4287C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -722,6 +727,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.broncaglioni.RoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

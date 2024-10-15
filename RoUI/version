@@ -1,3 +1,11 @@
+1.0.5
+
+Neue:
+- RODocumentViewController: neu
+- ROMessageType: send-Funktion eingebaut
+Korrektur:
+Intern:
+
 1.0.4
 
 Neue:

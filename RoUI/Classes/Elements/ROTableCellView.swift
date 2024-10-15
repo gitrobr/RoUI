@@ -17,7 +17,8 @@ import Cocoa
 /// müssen in der abgeleiteten Klasse überschriben werden.
 open class ROTableCellView: NSView {
     /// initialisieren
-    /// - Parameter column: Column-Definition
+    ///- Parameter column: Column-Definition
+    ///- Parameter withBottomLine: true: Die untere Kannte der View wird mit eine Line markiert
     required public init(column: ROTableColumnDefinition,
                          withBottomLine: Bool = false) {
         pColumn = column
