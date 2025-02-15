@@ -30,6 +30,7 @@ public protocol ROTableColumnDefinition {
     var titleAlignment: NSTextAlignment { get }
     var hasHeader: Bool { get }
     var size: CGFloat? { get }
+    var minWidth: CGFloat? { get }
 }
 
 extension ROTableColumnDefinition where Self: RawRepresentable, Self.RawValue == String {
@@ -59,6 +60,7 @@ extension ROTableColumnDefinition where Self: RawRepresentable, Self.RawValue ==
     public var titleAlignment: NSTextAlignment { .left }
     public var hasHeader: Bool { Self.hasHeader}
     public var size: CGFloat? { nil }
+    public var minWidth: CGFloat? { nil }
 }
 extension ROTableColumnDefinition where Self: CaseIterable {
     /// Liefert die Columndefinition anhand vom Columnidentifier
@@ -90,6 +92,14 @@ extension NSTableColumn {
         dataCell.lineBreakMode = .byTruncatingTail
         column.dataCell = dataCell
 
+        if let size = definition.size {
+            column.width = size
+            //column.maxWidth = size
+            //column.minWidth = size
+        }
+        if let minWidth = definition.minWidth {
+            column.minWidth = minWidth
+        }
         return column
     }
     static public var defaultTableColumnDefinition: ROTableColumnDefinition {

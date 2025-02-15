@@ -86,6 +86,8 @@ open class ROPopoverViewController: NSViewController {
     open func willCloseCancel() -> Bool { true }
     /// Wird aufgerufen wenn CANCEL und das Popover schon geschlossen ist
     open func didCloseCancel() {}
+    /// Das Popover wurder geschlossen. Jedoch didCloseOk/ didColoseCancel nocht nicht aufgerufen
+    open func didClose() {}
     /// Fügt OK und CANCEL ans untere Ende der View.
     ///
     /// Die upperView muss schon als Subview vorhanden sein

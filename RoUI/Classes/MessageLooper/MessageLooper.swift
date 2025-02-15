@@ -69,13 +69,17 @@ open class ROMessageLooper {
     }
 
     /// Registriert einen Empfänger
+    ///
+    /// EIn Epfängen wird nur einmal hinzugefüt.
     /// - Parameters:
     ///   - receiver: Der Empfänger
     ///   - priority: Die Priorität
     public func registerReceivers(_ receiver: ROMessageLooperReceiver, priority: Int = 99) {
         let rec = LooperRecord(receiver: receiver, priority: priority)
-        pReceivers.append(rec)
-        pReceivers.sort()
+        if pReceivers.first(where: { $0.receiver === rec.receiver }) == nil {
+            pReceivers.append(rec)
+            pReceivers.sort()
+        }
     }
     /// Eine Message senden.
     /// - Parameters:
@@ -93,7 +97,9 @@ open class ROMessageLooper {
     }
     public func pSendMessage(_ message: Message, callback: ROMessageCallback? = nil) {
         pReceivers.forEach({
-            if !($0 === message.sender) { $0.receiver.messageDelivery(message) }
+            if !($0 === message.sender) {
+                $0.receiver.messageDelivery(message)
+            }
         })
         if let callb = callback { callb() }
     }

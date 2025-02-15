@@ -26,7 +26,7 @@ open class ROTextViewScrollable: NSTextView {
         isVerticallyResizable = true
         isHorizontallyResizable = true
 
-        pScrollView = NSScrollView( frame: frameRect)
+        pScrollView = ScrollView( frame: frameRect)
 
         pScrollView.hasVerticalScroller = true
         pScrollView.hasHorizontalScroller = true
@@ -66,5 +66,15 @@ open class ROTextViewScrollable: NSTextView {
             return
         }
         super.insertBacktab(sender)
+    }
+
+}
+
+extension ROTextViewScrollable {
+    class ScrollView: NSScrollView {
+        open override func drawFocusRingMask() {
+            NSBezierPath.fill(bounds)
+        }
+        open override var focusRingMaskBounds: NSRect { bounds }
     }
 }
