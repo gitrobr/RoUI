@@ -278,7 +278,9 @@ extension RoLayout {
     /// - Parameters:
     ///   - views: Die Views (von Links nach Rechts)
     ///   - layoutHorizontal: Die Ausrichtung (Default centerY)
-    public func lcLine(views: [NSView], layoutHorizontal: RoLayout.LayoutHorizontal = .centerY) {
+    public func lcLine(views: [NSView],
+                       layoutHorizontal: RoLayout.LayoutHorizontal = .centerY,
+                       relationBetween:  NSLayoutConstraint.Relation = .equal) {
         guard let firstView = views.first, views.count > 1 else { return }
         lcSameAttribute(views: views, attribute: layoutHorizontal.attribute)
         var leftView = firstView
@@ -287,7 +289,7 @@ extension RoLayout {
 
             addLeftRightViews(leftView: leftView,
                               rightView: rightView,
-                              relation: .equal,
+                              relation: relationBetween,
                               constant: model.horizontal)
             leftView = rightView
         }
@@ -296,12 +298,14 @@ extension RoLayout {
     /// - Parameters:
     ///   - views: Die Views (von Links nach Rechts)
     ///   - layoutHorizontal: Die Ausrichtung (Default centerY)
+    ///   - relationBetween: Die Art des Constraints zwischen den einzelnen Views
     ///   - fitLast: true: die rechte View wird mit eq an die Superview geheftet. Sonst mit le
     public func lcLineToSuper(views: [NSView],
                               layoutHorizontal: RoLayout.LayoutHorizontal = .centerY,
+                              relationBetween:  NSLayoutConstraint.Relation = .equal,
                               fitLast: Bool = true) {
         guard let firstView = views.first, let lastView = views.last else { return }
-        lcLine(views: views, layoutHorizontal: layoutHorizontal)
+        lcLine(views: views, layoutHorizontal: layoutHorizontal, relationBetween: relationBetween)
         lcViewToSuper(view: firstView, type: .leading)
         lcViewToSuper(view: lastView, type: .trailing, relation: fitLast ? .eq : .le)
     }
