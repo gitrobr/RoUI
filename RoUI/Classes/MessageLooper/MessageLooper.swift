@@ -96,12 +96,14 @@ open class ROMessageLooper {
         }
     }
     public func pSendMessage(_ message: Message, callback: ROMessageCallback? = nil) {
-        pReceivers.forEach({
-            if !($0 === message.sender) {
-                $0.receiver.messageDelivery(message)
-            }
-        })
-        if let callb = callback { callb() }
+        DispatchQueue.main.async {
+            self.pReceivers.forEach({
+                if !($0 === message.sender) {
+                    $0.receiver.messageDelivery(message)
+                }
+            })
+            if let callb = callback { callb() }
+        }
     }
     public func pSendMessageWithDelay(_ message: Message, delay: Double, callback: ROMessageCallback? = nil) {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {

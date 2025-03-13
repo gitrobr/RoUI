@@ -68,6 +68,7 @@ extension NSTableView {
     /// Fügt eine neue Zeile in die Tabelle und wählt diese aus
     /// - Parameter row: Zeile an der die neue Tabellenzeile eingefügt wird
     public func insertAndSelectRow(at row: Int) {
+        let row = min(max(row, 0), numberOfRows)
         insertRows(at: row.indexSet, withAnimation: .slideInsert)
         selectRowIndexes(row.indexSet, byExtendingSelection: false)
         scrollRowToVisible(row)
