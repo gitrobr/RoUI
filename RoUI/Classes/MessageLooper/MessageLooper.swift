@@ -81,6 +81,15 @@ open class ROMessageLooper {
             pReceivers.sort()
         }
     }
+    public func clear() {
+        pReceivers.removeAll()
+    }
+    public var numberOfReceivers: Int {
+        return pReceivers.count
+    }
+    public func unregisterReceiver(_ receiver: ROMessageLooperReceiver) {
+        pReceivers.removeAll { $0.receiver === receiver }
+    }
     /// Eine Message senden.
     /// - Parameters:
     ///   - message: Die Message
@@ -96,19 +105,21 @@ open class ROMessageLooper {
         }
     }
     public func pSendMessage(_ message: Message, callback: ROMessageCallback? = nil) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
             self.pReceivers.forEach({
-                if !($0 === message.sender) {
-                    $0.receiver.messageDelivery(message)
+                if !($0.receiver === message.sender) {
+                    $0.receiver?.messageDelivery(message)
                 }
             })
             if let callb = callback { callb() }
         }
     }
     public func pSendMessageWithDelay(_ message: Message, delay: Double, callback: ROMessageCallback? = nil) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+            guard let self else { return }
             self.pReceivers.forEach({
-                if !($0 === message.sender) { $0.receiver.messageDelivery(message) }
+                if !($0.receiver === message.sender) { $0.receiver?.messageDelivery(message) }
             })
             if let callb = callback { callb() }
         }
@@ -145,7 +156,7 @@ extension ROMessageLooper {
         }
 
         let priority: Int
-        let receiver: ROMessageLooperReceiver
+        weak var receiver: ROMessageLooperReceiver?
 
         init(receiver: ROMessageLooperReceiver, priority: Int) {
             self.priority = priority
@@ -190,7 +201,8 @@ open class MessageLooper {
         if let callb = callback { callb() }
     }
     public func pSendMessageWithDelay(_ message: MessageLooper.Message, delay: Double, callback: ROMessageCallback? = nil) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+            guard let self else { return }
             self.pReceivers.forEach({
                 if !($0 === message.sender) { $0.receiver.messageDelivery(message) }
             })
