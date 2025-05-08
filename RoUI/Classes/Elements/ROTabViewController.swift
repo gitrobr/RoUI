@@ -13,7 +13,7 @@ import AppKit
 }
 
 open class ROTabViewController: NSTabViewController {
-    public unowned var delegate: ROTabViewControllerDelegate?
+    public weak var delegate: ROTabViewControllerDelegate?
     open override func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
         delegate?.tabView?(self, didSelect: tabViewItem)
     }

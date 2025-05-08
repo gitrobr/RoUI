@@ -63,10 +63,12 @@ open class ROTableCellView: NSView {
     ///
     /// Diese Funktion muss in der abgeleiteten Klasse überschrieben werden
     /// - Returns: Die Content-View
-    open func getContentView() -> NSView { fatalError("Muss in den abgeleiteten Klassen definier sein") }
+    open func getContentView() -> NSView { fatalError(#function + ": Muss in den abgeleiteten Klassen definier sein") }
     /// Diese Funktion wird beim setzen des Objektwertes aufgerufen
     /// - Parameter editable: isEditabe aus der Column-Definition oder der überschreibene Wert
-    open func setIsEditableTo(_ editable: Bool ) { fatalError("Muss in den abgeleiteten Klassen definier sein") }
+    open func setIsEditableTo(_ editable: Bool ) {
+        fatalError(#function + ": Muss in den abgeleiteten Klassen definier sein")
+    }
     /// Wird aufgerufen wenn der objectValue gesetzt wird
     open func didSetObjectValue() { }
     private let pColumn: ROTableColumnDefinition

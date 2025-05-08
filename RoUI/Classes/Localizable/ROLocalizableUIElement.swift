@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 public enum ROLocalizableUIElement: String, ROLocalizable {
     case roButtonOk
     case roButtonCancel
